@@ -10,10 +10,6 @@ html, body {
     flex-direction: column;
     scrollbar-width: none;
     -ms-overflow-style: none;
-    background-image: url('images/logo.jpeg'); /* Add this line */
-    background-size: inherit; 
-    background-position: center; /* Center the image */
-    background-repeat: no-repeat; /* Do not repeat the image */
 }
 body::-webkit-scrollbar { 
     width: 0;

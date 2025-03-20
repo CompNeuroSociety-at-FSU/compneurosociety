@@ -1,0 +1,454 @@
+/* Body background color */
+html, body {
+    background-color: black;
+    color: white;
+    font-family: 'Montserrat';
+    overflow-x: hidden;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+body::-webkit-scrollbar { 
+    width: 0;
+    height: 0;
+}
+/* Add a background color to the top navigation */
+.topnav {
+    background-color: #0092B3;
+    overflow: hidden;
+    width: 100%;
+    display: flex;
+    justify-content: space-between; /* Space between logo and navbar */
+    align-items: center;
+    padding: 10px 20px;
+}
+
+/* Navigation list styling */
+.nav {
+    list-style-type: none; 
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center; /* Centers the links horizontally */
+    flex-grow: 1; /* Ensures the navbar links are centered even with the logo on the left */
+}
+
+/* Styling for navbar links */
+.topnav a {
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    display: block; /* Ensures links behave like block elements for proper padding */
+}
+
+/* Hover effect for links */
+.topnav a:hover {
+    background-color: #CEB888;
+    color: white;
+}
+
+/* Active link styling */
+.topnav a.active {
+    background-color: #CEB888;
+    color: black;
+}
+
+/* FSU logo positioning */
+#fsu-logo {
+    margin-right: 20px; /* Adjusts space from right edge of navbar */
+}
+
+#fsu-logo img {
+    height: 75px; /* Maintain a fixed height for the logo */
+    width: auto;  /* Maintain aspect ratio of logo */
+}
+h1, h2 {
+    text-align: center;
+}
+/* Custom large oval button */
+/* Custom large oval button */
+.btn-oval {
+    background-color: #0092B3; /* Button color */
+    color: white; /* Text color */
+    padding: 20px 40px; /* Large padding for a larger button */
+    font-size: 18px; /* Larger text */
+    border: none; /* Remove default border */
+    border-radius: 50px; /* Oval shape */
+    text-align: center; /* Center text */
+    display: inline-block; /* Ensure button aligns properly */
+    cursor: pointer; /* Change cursor to indicate it's clickable */
+    transition: background-color 0.3s ease; /* Smooth hover effect */
+}
+
+.btn-oval:hover {
+    background-color: #007a8a; /* Darker shade on hover */
+}
+
+/* Center the button horizontally */
+.center-button {
+    text-align: center; /* Center the button horizontally */
+    margin-top: 20px; /* Add some space above the button */
+}
+.info-box {
+    text-align: center;
+    margin:10px auto;
+    background-color: #CEB888;
+    overflow: hidden;
+    width: 50%;
+    align-items: center;
+    padding: 20px 20px;
+    border-radius: 16px;
+}
+.info-box p {
+    color:black;
+}
+.pdf-container {
+    width: 100%;
+    height: 100vh;
+    overflow-x: hidden;
+    display: flex;
+    justify-content: center; /* Centers horizontally */
+    align-items: center;     /* Centers vertically */
+    margin-bottom: 50px;
+}   
+.pdf {
+    max-width: 100%;  /* Prevents overflow if the screen is smaller */
+    max-height: 100%; /* Prevents overflow if the screen is smaller */
+}
+#brain-container {
+    margin-top: 0;
+    padding: 0;
+}
+canvas {
+    display: block;
+    position: relative;
+    top: -50px; /* Move closer to the top */
+    height: calc(100vh - 100px);
+    width: 100%;
+}
+footer {
+    background-color: #0092B3;
+    padding:20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: auto;
+}
+#club-logo {
+    width: 75px;
+    height: auto;
+
+}
+#icons {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+#icons svg {
+    cursor: crosshair; /* Add a pointer cursor for interactivity */
+    transition: transform 0.2s; /* Add a hover effect */
+}
+
+#icons svg:hover {
+    transform: scale(1.2); /* Slightly enlarge the icon on hover */
+}
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+#countdown {
+    margin-bottom: -10px;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
+#nole-central {
+    width: 50%;
+}
+#copyright {
+    margin: 0;
+    text-align: right;
+    flex-shrink: 1; /* Allows the copyright text to shrink */
+    white-space: nowrap; /* Prevents it from breaking into multiple lines */
+    overflow: hidden;
+    text-overflow: ellipsis; /* Adds '...' if the text is too long */
+    max-width: 30%; /* Ensures the copyright takes up at most 30% of the footer width */
+}
+/* Container for all flip cards */
+.flip-card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px; /* Space between rows */
+    width: 90vw; /* Adjust width as needed */
+    margin: 20px auto; /* Center the container */
+    padding: 10px;
+}
+
+
+/* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
+.flip-card {
+    background-color: transparent;
+    width: 100%;
+    height: 0;
+    padding-bottom:100%;
+    position: relative;
+    perspective: 1000px; /* Remove this if you don't want the 3D effect */
+  }
+  
+  /* This container is needed to position the front and back side */
+  .flip-card-inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+  }
+  
+  /* Do an horizontal flip when you move the mouse over the flip box container */
+  .flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+  }
+  
+  /* Position the front and back side */
+  .flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden; /* Safari */
+    backface-visibility: hidden;
+  }
+  
+  /* Style the front side (fallback if image is missing) */
+  .flip-card-front {
+    background-color: #bbb;
+    color: black;
+  }
+  .flip-card-front img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure image covers the entire area */
+}
+  /* Style the back side */
+  .flip-card-back {
+    background-color: #0092B3;
+    color: white;
+    transform: rotateY(180deg);
+  }
+  .announcement {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    margin: 20px 0;
+    padding: 15px;
+    background-color: #CEB888;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.announcement-text {
+    flex: 1; /* Allows the text area to take up available space */
+}
+
+.announcement-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 0 0 10px;
+    color: black;
+    text-align: left;
+}
+
+.announcement-body {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #555;
+}
+
+.announcement-image img {
+    max-width: 300px;
+    width: 100%; /* Ensures the image scales properly */
+    height: auto;
+    border-radius: 10px;
+}
+
+@media (max-width: 768px) {
+    .announcement {
+        flex-direction: column; /* Stack content vertically on smaller screens */
+        align-items: center;
+        text-align: center;
+    }
+
+    .announcement-image {
+        margin-top: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    .events-page {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .event-image img {
+        max-height: 300px;
+    }
+}
+
+.carousel-container {
+    position: relative;
+    max-width: 800px;
+    margin: 2rem auto;
+    overflow: hidden;
+  }
+  
+  .carousel-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+  }
+  
+  .carousel-item {
+    flex: 0 0 60%;
+    min-width: 60%;
+    padding: 20px;
+    transition: all 0.5s ease-in-out;
+    position: relative;
+    cursor: pointer;
+  }
+  
+  .carousel-item.prev {
+    transform: translateX(-30%) scale(0.8);
+    opacity: 0.7;
+  }
+  
+  .carousel-item.next {
+    transform: translateX(30%) scale(0.8);
+    opacity: 0.7;
+  }
+  
+  .carousel-content {
+    position: relative;
+  }
+  
+  .carousel-image {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+  
+  .event-info {
+    text-align: center;
+    margin-top: 15px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .event-info h3 {
+    margin: 0 0 5px 0;
+    color: #333;
+  }
+  
+  .event-info p {
+    margin: 0;
+    color: #666;
+  }
+  
+  .nav-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.7);
+    color: white;
+    border: none;
+    padding: 15px 20px;
+    cursor: pointer;
+    z-index: 10;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    transition: background 0.3s ease;
+  }
+  
+  .nav-button:hover {
+    background: rgba(0,0,0,0.9);
+  }
+  
+  .nav-button.prev {
+    left: 10px;
+  }
+  
+  .nav-button.next {
+    right: 10px;
+  }
+.page-container {
+    display: flex;
+    justify-content: space-between;
+}
+.events-container {
+    position: relative;
+    overflow-y: scroll;
+    width: 350px;
+    height: 750px;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    margin-left: 50px;
+    margin-top: 25px;
+    padding-left: 10px;
+}
+.events-container::-webkit-scrollbar { 
+    width: 0;
+    height: 0;
+}
+.timeline-line {
+    position: absolute;
+    left: 150px;
+    top: 0;
+    width: 4px;
+    background-color: #782F40;
+    z-index: 0;
+}
+.event {
+    position: relative;
+    width: 300px;
+    height: 200px;
+    background-color: #CEB888;
+    margin-bottom: 50px;
+    color: black;
+    padding: 10px 10px;
+    z-index: 1;
+    transition: all 0.5s ease;
+    border-radius: 10px;
+}
+.event h3, .event p {
+    text-align: center;
+}
+.event p {
+    font-size: 14px;
+}
+.event:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(0,255,255,0.5);
+}
+.event:hover::before {
+    opacity: 1;
+    transform: rotate(-45deg) translateY(100%);
+}
+#event-image {
+    margin-right: 100px;
+    margin-bottom: 100px;
+    margin-top: 100px;
+}

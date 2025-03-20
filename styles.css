@@ -1,6 +1,6 @@
 /* Body background color */
 html, body {
-    background-color: black;
+    background-color: #f8fbf8;
     color: white;
     font-family: 'Montserrat';
     overflow-x: hidden;
@@ -10,6 +10,10 @@ html, body {
     flex-direction: column;
     scrollbar-width: none;
     -ms-overflow-style: none;
+    background-image: url('images/logo.jpeg'); /* Add this line */
+    background-size: inherit; 
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
 }
 body::-webkit-scrollbar { 
     width: 0;
@@ -19,12 +23,14 @@ body::-webkit-scrollbar {
 
 .topnav {
     /* create a circular nav bar */
-    border-radius: 50px;
+    border-radius: 20px;
     /* blur it */
     backdrop-filter: blur(10px);
-    background-color: #f8fbf8;
+    background-color: #f8fbf8; /* Semi-transparent background */
+    backdrop-filter: blur(10px); /* Blur effect */
+    box-shadow: 0 2px 4px #2d3647; /* Subtle shadow */
     overflow: hidden;
-    width: 100%;
+    width: 75%;
     display: flex;
     justify-content: space-between; /* Space between logo and navbar */
     align-items: center;
@@ -148,7 +154,7 @@ footer {
     margin-top: auto;
 }
 #club-logo {
-    width: 75px;
+    width: 100px;
     height: auto;
 
 }

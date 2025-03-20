@@ -27,10 +27,10 @@ body::-webkit-scrollbar {
     /* blur it */
     backdrop-filter: blur(10px);
     background-color: #f8fbf8; /* Semi-transparent background */
-    backdrop-filter: blur(10px); /* Blur effect */
+    backdrop-filter: blur(100px); /* Blur effect */
     box-shadow: 0 2px 4px #2d3647; /* Subtle shadow */
     overflow: hidden;
-    width: 75%;
+    width: 50%;
     display: flex;
     justify-content: space-between; /* Space between logo and navbar */
     align-items: center;

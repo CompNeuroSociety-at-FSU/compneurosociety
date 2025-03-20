@@ -66,7 +66,7 @@ body::-webkit-scrollbar {
 /* Active link styling */
 .topnav a.active {
     background-color: #f27f9b;
-    color: black;
+    color: #f8fbf8;
 }
 
 /* FSU logo positioning */

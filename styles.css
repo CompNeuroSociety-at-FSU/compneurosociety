@@ -91,7 +91,7 @@ h1, h2 {
 }
 
 .btn-oval:hover {
-    background-color: #007a8a; /* Darker shade on hover */
+    background-color: #f27f9b; /* Darker shade on hover */
 }
 
 /* Center the button horizontally */
@@ -102,7 +102,7 @@ h1, h2 {
 .info-box {
     text-align: center;
     margin:10px auto;
-    background-color: #CEB888;
+    background-color: #f8fbf8;
     overflow: hidden;
     width: 50%;
     align-items: center;
@@ -137,7 +137,7 @@ canvas {
     width: 100%;
 }
 footer {
-    background-color: #0092B3;
+    background-color: #868a86;
     padding:20px;
     display: flex;
     align-items: center;

@@ -16,8 +16,13 @@ body::-webkit-scrollbar {
     height: 0;
 }
 /* Add a background color to the top navigation */
+
 .topnav {
-    background-color: #0092B3;
+    /* create a circular nav bar */
+    border-radius: 50px;
+    /* blur it */
+    backdrop-filter: blur(10px);
+    background-color: #f8fbf8;
     overflow: hidden;
     width: 100%;
     display: flex;
@@ -38,7 +43,7 @@ body::-webkit-scrollbar {
 
 /* Styling for navbar links */
 .topnav a {
-    color: black;
+    color: #2d3647;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
@@ -48,13 +53,13 @@ body::-webkit-scrollbar {
 
 /* Hover effect for links */
 .topnav a:hover {
-    background-color: #CEB888;
+    background-color: #f27f9b;
     color: white;
 }
 
 /* Active link styling */
 .topnav a.active {
-    background-color: #CEB888;
+    background-color: #f27f9b;
     color: black;
 }
 

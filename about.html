@@ -47,8 +47,10 @@
         </div>
         <h1>Constitution</h1>
         <div class="pdf-container">   
-            <object class="pdf" data="constitution.pdf" width="800" height="800"></object>
+            <div id="constitution-pdf"></div>
         </div> 
+        <script src="https://unpkg.com/pdfobject"></script>
+        <script>PDFObject.embed("/constitution.pdf", "#constitution-pdf");</script>
         <footer>
             <img id="club-logo" src="images/logo.jpeg"></img>
             <div id="icons">

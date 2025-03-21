@@ -129,17 +129,15 @@ h2 {
     color:#2d3647;
 }
 .pdf-container {
-    width: 100%;
-    height: 100vh;
-    overflow-x: hidden;
+    height: 1000px;
     display: flex;
-    justify-content: center; /* Centers horizontally */
-    align-items: center;     /* Centers vertically */
+    justify-content: center;
+    align-items: center;
     margin-bottom: 50px;
 }   
-.pdf {
-    max-width: 100%;  /* Prevents overflow if the screen is smaller */
-    max-height: 100%; /* Prevents overflow if the screen is smaller */
+#constitution-pdf {
+    height: 100%;
+    width: 50%;
 }
 #brain-container {
     margin-top: 0;

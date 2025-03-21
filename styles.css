@@ -1,7 +1,5 @@
 /* Body background color */
 html, body {
-    background-color: black;
-    color: white;
     font-family: 'Montserrat';
     overflow-x: hidden;
     margin: 0;
@@ -10,6 +8,7 @@ html, body {
     flex-direction: column;
     scrollbar-width: none;
     -ms-overflow-style: none;
+
 }
 body::-webkit-scrollbar { 
     width: 0;
@@ -17,8 +16,11 @@ body::-webkit-scrollbar {
 }
 /* Add a background color to the top navigation */
 .topnav {
-    background-color: #0092B3;
+    /* create a circular nav bar */
+    /* blur it */
+    box-shadow: 0 2px 4px #f27f9c81; /* Subtle shadow */
     overflow: hidden;
+    background-color: #6db9c9;
     width: 100%;
     display: flex;
     justify-content: space-between; /* Space between logo and navbar */
@@ -26,6 +28,12 @@ body::-webkit-scrollbar {
     padding: 10px 20px;
 }
 
+.form-container {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    margin: 20px 0; /* Add some margin for spacing */
+}
 /* Navigation list styling */
 .nav {
     list-style-type: none; 
@@ -33,12 +41,13 @@ body::-webkit-scrollbar {
     margin: 0;
     display: flex;
     justify-content: center; /* Centers the links horizontally */
-    flex-grow: 1; /* Ensures the navbar links are centered even with the logo on the left */
+    flex-grow: 1;
+    font-weight: bold; /* Ensures the navbar links are centered even with the logo on the left */
 }
 
 /* Styling for navbar links */
 .topnav a {
-    color: black;
+    color: #2d3647;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
@@ -48,14 +57,14 @@ body::-webkit-scrollbar {
 
 /* Hover effect for links */
 .topnav a:hover {
-    background-color: #CEB888;
-    color: white;
+    background-color: #f27f9b;
+    color: #f8fbf8;
 }
 
 /* Active link styling */
 .topnav a.active {
-    background-color: #CEB888;
-    color: black;
+    background-color: #2d3647;
+    color: #f8fbf8;
 }
 
 /* FSU logo positioning */
@@ -67,27 +76,39 @@ body::-webkit-scrollbar {
     height: 75px; /* Maintain a fixed height for the logo */
     width: auto;  /* Maintain aspect ratio of logo */
 }
-h1, h2 {
+h1 {
     text-align: center;
+    margin-top: 20px;
+    font-weight: bolder;
+}
+    
+h2 {
+    text-align: center;
+    font-weight: 20px;
+    
 }
 /* Custom large oval button */
 /* Custom large oval button */
 .btn-oval {
     background-color: #0092B3; /* Button color */
-    color: white; /* Text color */
+    color: #2d3647; /* Text color */
     padding: 20px 40px; /* Large padding for a larger button */
     font-size: 18px; /* Larger text */
     border: none; /* Remove default border */
-    border-radius: 50px; /* Oval shape */
+    border-radius: 100px; /* Oval shape */
     text-align: center; /* Center text */
     display: inline-block; /* Ensure button aligns properly */
     cursor: pointer; /* Change cursor to indicate it's clickable */
     transition: background-color 0.3s ease; /* Smooth hover effect */
+    position: relative;
+    z-index: 1;
     text-align: center;
 }
 
 .btn-oval:hover {
-    background-color: #007a8a; /* Darker shade on hover */
+    background-color: #c86880; /* Darker shade on hover */
+    /* Add a slight shadow on hover */
+    box-shadow: 10px 10px rgba(0,0,0,0.1);
 }
 
 .center-button {
@@ -97,7 +118,7 @@ h1, h2 {
 .info-box {
     text-align: center;
     margin:10px auto;
-    background-color: #CEB888;
+    background-color: #f8fbf8;
     overflow: hidden;
     width: 50%;
     align-items: center;
@@ -105,7 +126,7 @@ h1, h2 {
     border-radius: 16px;
 }
 .info-box p {
-    color:black;
+    color:#2d3647;
 }
 .pdf-container {
     width: 100%;
@@ -132,7 +153,7 @@ canvas {
     width: 100%;
 }
 footer {
-    background-color: #0092B3;
+    background-color: #c86880;
     padding:20px;
     display: flex;
     align-items: center;
@@ -143,7 +164,7 @@ footer {
     margin-top: auto;
 }
 #club-logo {
-    width: 75px;
+    width: 0px;
     height: auto;
 
 }
@@ -171,7 +192,7 @@ footer {
 }
 #countdown {
     margin-bottom: -10px;
-    color: white;
+    color: #2d3647;
     font-size: 20px;
     font-weight: bold;
 }
@@ -246,7 +267,7 @@ footer {
 }
   /* Style the back side */
   .flip-card-back {
-    background-color: #0092B3;
+    background-color: #333;
     color: white;
     transform: rotateY(180deg);
   }
@@ -423,9 +444,10 @@ footer {
 }
 .event {
     position: relative;
-    width: 300px;
+    width: 310px;
     height: 200px;
-    background-color: #CEB888;
+    border-color: #CEB888;
+    background-color: #c86880;
     margin-bottom: 50px;
     color: black;
     padding: 10px 10px;
@@ -434,7 +456,7 @@ footer {
     border-radius: 10px;
 }
 .event h3, .event p {
-    text-align: center;
+    text-align: left;
 }
 .event p {
     font-size: 14px;

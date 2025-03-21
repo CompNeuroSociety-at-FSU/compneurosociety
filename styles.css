@@ -166,7 +166,6 @@ footer {
 #club-logo {
     width: 0px;
     height: auto;
-
 }
 #icons {
     position: absolute;
@@ -197,7 +196,8 @@ footer {
     font-weight: bold;
 }
 #nole-central {
-    width: 50%;
+    width: 30%;
+    margin-bottom: 50px;
 }
 #copyright {
     margin: 0;

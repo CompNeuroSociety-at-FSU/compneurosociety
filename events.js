@@ -63,6 +63,36 @@ function handleEventClick(eventElement, index) {
   document.getElementById("event-image").src= images + eventElement.getAttribute("data-image")
 }
 
+const events = document.querySelectorAll('.event');
+let now = new Date();
+let dates = {"now": now};
+for (let i = 0; i < events.length; i++)
+{
+  dates[events[i].id] = new Date(events[i].getAttribute("data-date"))
+}
+dates = Object.fromEntries(
+  Object.entries(dates).sort((a, b) => a[1] - b[1])
+);
+let next = ""
+const container = document.querySelector('.events-container');
+container.style.scrollBehavior = 'smooth';
+for(const [key, value] of Object.entries(dates))
+{
+  if(value > now)
+  {
+    next = document.getElementById(key);
+    break;
+  }
+}
+const containerRect = container.getBoundingClientRect();
+const nextRect = next.getBoundingClientRect();
+const offset = nextRect.top - containerRect.top - 25;
+
+// Smooth scroll to the element within the container
+container.scrollBy({
+  top: offset,
+  behavior: 'smooth'
+});
 // Run when page loads
 window.addEventListener('load', function() {
   adjustTimelineHeight();

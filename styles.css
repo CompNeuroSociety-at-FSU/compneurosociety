@@ -83,13 +83,13 @@ h1, h2 {
     display: inline-block; /* Ensure button aligns properly */
     cursor: pointer; /* Change cursor to indicate it's clickable */
     transition: background-color 0.3s ease; /* Smooth hover effect */
+    text-align: center;
 }
 
 .btn-oval:hover {
     background-color: #007a8a; /* Darker shade on hover */
 }
 
-/* Center the button horizontally */
 .center-button {
     text-align: center; /* Center the button horizontally */
     margin-top: 20px; /* Add some space above the button */
@@ -415,7 +415,7 @@ footer {
 }
 .timeline-line {
     position: absolute;
-    left: 150px;
+    left: 165px;
     top: 0;
     width: 4px;
     background-color: #782F40;

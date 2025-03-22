@@ -473,4 +473,6 @@ footer {
 #email {
     text-decoration: none;
     color: #6db9c9;
+    overflow-wrap: break-word;
+    white-space: normal;
 }

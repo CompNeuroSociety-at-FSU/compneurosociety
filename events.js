@@ -81,6 +81,7 @@ for(const [key, value] of Object.entries(dates))
   if(value > now)
   {
     next = document.getElementById(key);
+    document.getElementById("event-image").src = images + next.getAttribute("data-image")
     break;
   }
 }

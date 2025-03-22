@@ -470,3 +470,7 @@ footer {
       padding: 10px 20px;
     }
 }
+#email {
+    text-decoration: none;
+    color: #6db9c9;
+}

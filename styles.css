@@ -8,6 +8,7 @@ html, body {
     flex-direction: column;
     scrollbar-width: none;
     -ms-overflow-style: none;
+    color:#1d2430;
 
 }
 body::-webkit-scrollbar { 
@@ -16,11 +17,8 @@ body::-webkit-scrollbar {
 }
 /* Add a background color to the top navigation */
 .topnav {
-    /* create a circular nav bar */
-    /* blur it */
-    box-shadow: 0 2px 4px #f27f9c81; /* Subtle shadow */
     overflow: hidden;
-    background-color: #6db9c9;
+    background-color: #BCD6D8;
     width: 100%;
     display: flex;
     justify-content: space-between; /* Space between logo and navbar */
@@ -47,7 +45,7 @@ body::-webkit-scrollbar {
 
 /* Styling for navbar links */
 .topnav a {
-    color: #2d3647;
+    color: #1d2430;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
@@ -90,8 +88,8 @@ h2 {
 /* Custom large oval button */
 /* Custom large oval button */
 .btn-oval {
-    background-color: #0092B3; /* Button color */
-    color: #2d3647; /* Text color */
+    background-color: #BBBBBB; /* Button color */
+    color: #1d2430; /* Text color */
     padding: 20px 40px; /* Large padding for a larger button */
     font-size: 18px; /* Larger text */
     border: none; /* Remove default border */
@@ -126,7 +124,7 @@ h2 {
     border-radius: 16px;
 }
 .info-box p {
-    color:#2d3647;
+    color:#1d2430;
 }
 .pdf-container {
     height: 1000px;
@@ -151,7 +149,7 @@ canvas {
     width: 100%;
 }
 footer {
-    background-color: #c86880;
+    background-color: #BBBBBB;
     padding:20px;
     display: flex;
     align-items: center;
@@ -189,7 +187,7 @@ footer {
 }
 #countdown {
     margin-bottom: -10px;
-    color: #2d3647;
+    color: #1d2430;
     font-size: 20px;
     font-weight: bold;
 }
@@ -368,7 +366,7 @@ footer {
     left: 165px;
     top: 0;
     width: 4px;
-    background-color: #782F40;
+    background-color: #BBBBBB;
     z-index: 0;
 }
 .event {
@@ -376,9 +374,9 @@ footer {
     width: 310px;
     height: 200px;
     border-color: #CEB888;
-    background-color: #c86880;
+    background-color: #E5BCC7;
     margin-bottom: 50px;
-    color: black;
+    color: #1d2430;
     padding: 10px 10px;
     z-index: 1;
     transition: all 0.5s ease;
@@ -394,7 +392,7 @@ footer {
 }
 .event:hover {
     transform: scale(1.05);
-    box-shadow: 0 0 20px rgba(0,255,255,0.5);
+    box-shadow: 0 0 20px rgb(187, 187, 187, 0.5);
 }
 .event:hover::before {
     opacity: 1;
@@ -420,7 +418,7 @@ footer {
   .bar1, .bar2, .bar3 {
     width: 100%;
     height: 3px;
-    background-color: #2d3647;
+    background-color: #1d2430;
     transition: 0.4s;
   }
   
@@ -449,7 +447,7 @@ footer {
       right: -100%;
       width: 70%;
       height: 100vh;
-      background-color: #6db9c9;
+      background-color: #BCD6D8;
       flex-direction: column;
       justify-content: flex-start;
       padding-top: 80px;

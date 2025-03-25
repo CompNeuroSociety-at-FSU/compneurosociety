@@ -8,7 +8,8 @@ html, body {
     flex-direction: column;
     scrollbar-width: none;
     -ms-overflow-style: none;
-    color:#1d2430;
+    color:#F2F2F2;
+    background-color: #4F6776;
 
 }
 body::-webkit-scrollbar { 
@@ -18,7 +19,7 @@ body::-webkit-scrollbar {
 /* Add a background color to the top navigation */
 .topnav {
     overflow: hidden;
-    background-color: #BCD6D8;
+    background-color: #283437;
     width: 100%;
     display: flex;
     justify-content: space-between; /* Space between logo and navbar */
@@ -45,7 +46,7 @@ body::-webkit-scrollbar {
 
 /* Styling for navbar links */
 .topnav a {
-    color: #1d2430;
+    color: #F2F2F2;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
@@ -55,14 +56,16 @@ body::-webkit-scrollbar {
 
 /* Hover effect for links */
 .topnav a:hover {
-    background-color: #f27f9b;
-    color: #f8fbf8;
+    background-color: #F2809F;
+    color: #F2F2F2;
+    border-radius: 50px;;
 }
 
 /* Active link styling */
 .topnav a.active {
-    background-color: #2d3647;
-    color: #f8fbf8;
+    background-color: #3C4E59;
+    color: #F2F2F2;
+    border-radius: 50px;;
 }
 
 /* FSU logo positioning */
@@ -88,8 +91,8 @@ h2 {
 /* Custom large oval button */
 /* Custom large oval button */
 .btn-oval {
-    background-color: #BBBBBB; /* Button color */
-    color: #1d2430; /* Text color */
+    background-color: #60AAA2; /* Button color */
+    color: #0d0d0d; /* Text color */
     padding: 20px 40px; /* Large padding for a larger button */
     font-size: 18px; /* Larger text */
     border: none; /* Remove default border */
@@ -104,8 +107,9 @@ h2 {
 }
 
 .btn-oval:hover {
-    background-color: #c86880; /* Darker shade on hover */
+    background-color: #D5718C; /* Darker shade on hover */
     /* Add a slight shadow on hover */
+    color: #0d0d0d;
     box-shadow: 10px 10px rgba(0,0,0,0.1);
 }
 
@@ -149,7 +153,7 @@ canvas {
     width: 100%;
 }
 footer {
-    background-color: #BBBBBB;
+    background-color: #B3E4DA;
     padding:20px;
     display: flex;
     align-items: center;
@@ -158,6 +162,7 @@ footer {
     width: 100%;
     box-sizing: border-box;
     margin-top: auto;
+    color: #0d0d0d;
 }
 #club-logo {
     width: 0px;
@@ -263,7 +268,7 @@ footer {
 }
   /* Style the back side */
   .flip-card-back {
-    background-color: #333;
+    background-color: #283437;
     color: white;
     transform: rotateY(180deg);
   }
@@ -374,9 +379,9 @@ footer {
     width: 310px;
     height: 200px;
     border-color: #CEB888;
-    background-color: #E5BCC7;
+    background-color: #D5718C;
     margin-bottom: 50px;
-    color: #1d2430;
+    color: #F2F2F2;
     padding: 10px 10px;
     z-index: 1;
     transition: all 0.5s ease;
@@ -420,7 +425,7 @@ footer {
   .bar1, .bar2, .bar3 {
     width: 100%;
     height: 3px;
-    background-color: #1d2430;
+    background-color: #F2F2F2;
     transition: 0.4s;
   }
   
@@ -449,7 +454,7 @@ footer {
       right: -100%;
       width: 70%;
       height: 100vh;
-      background-color: #BCD6D8;
+      background-color: #283437;
       flex-direction: column;
       justify-content: flex-start;
       padding-top: 80px;

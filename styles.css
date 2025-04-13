@@ -10,6 +10,7 @@ html, body {
     -ms-overflow-style: none;
     color:#F2F2F2;
     background-color: #4F6776;
+    overflow-x: hidden;
 
 }
 body::-webkit-scrollbar { 
@@ -25,8 +26,7 @@ body::-webkit-scrollbar {
     justify-content: space-between; /* Space between logo and navbar */
     align-items: center;
     padding: 10px 20px;
-    position: relative; /* Ensure the navbar is positioned */
-    z-index: 10000; /* Set a high z-index to bring it above other elements */
+    z-index: 10000;
 }
 
 .form-container {
@@ -49,9 +49,8 @@ body::-webkit-scrollbar {
 }
 
 .nav > li {
-    position:relative; /* Needed for positioning the dropdown */
+    position: relative; /* Needed for positioning the dropdown */
     margin: 15px 15px;
-    z-index: 999999;
 }
 
 .nav > li > a {
@@ -60,11 +59,7 @@ body::-webkit-scrollbar {
     padding: 10px 15px;
     display: inline-block;
     transition: color 0.3s ease;
-    overflow: visible;; /* Ensures the links block out links behind it */
-}
-
-.nav > li > a:hover {
-    color: #60AAA2; /* Change color on hover */
+    overflow: visible; /* Ensures the links block out links behind it */
 }
 
 /* Style for the dropdown menu */
@@ -73,17 +68,17 @@ body::-webkit-scrollbar {
     padding: 0;
     margin: 0;
     position: absolute;
-    top: 50%; /* Position below the parent link */
     left: 0;
     background-color: #283437; /* Background color for dropdown */
     display: none; /* Initially hidden */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     z-index: 0;
-    
+    border-radius: 15px;
 }
 
 .dropdown li {
     margin: 0;
+    padding-bottom: 2.5px;
 }
 
 .dropdown li a {
@@ -93,7 +88,6 @@ body::-webkit-scrollbar {
     display: list-item;
     position: relative;
     top: 100%;
-    transition: background-color 0.3s ease;
     overflow-block: visible; /* Ensures the links block out links behind it */
     z-index: 0; /* Ensures the dropdown links are above the background */
 }
@@ -128,8 +122,7 @@ body::-webkit-scrollbar {
 
 /* Active link styling */
 .topnav a.active {
-    background-color: #3C4E59;
-    color: #F2F2F2;
+    color: #60AAA2;
     border-radius: 50px;
 }
 
@@ -541,7 +534,7 @@ footer {
     .nav li {
       margin: 20px 0;
       overflow-block:visible;
-      display:block;;
+      display:block;
       /* Ensures the links block out links behind it */
       z-index: 0;
       background-color: #283437;

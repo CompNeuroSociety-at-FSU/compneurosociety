@@ -75,7 +75,9 @@ body::-webkit-scrollbar {
     z-index: 0;
     border-radius: 15px;
 }
-
+.dropdown a.active {
+    color: #60AAA2;
+}
 .dropdown li {
     margin: 0;
     padding-bottom: 2.5px;
@@ -123,7 +125,6 @@ body::-webkit-scrollbar {
 /* Active link styling */
 .topnav a.active {
     color: #60AAA2;
-    border-radius: 50px;
 }
 
 /* FSU logo positioning */
@@ -590,4 +591,15 @@ footer {
 
 .special-link:hover {
     color: #BBBBBB; /* Darker red color on hover */
+}
+.lead-description{
+    text-align: center;
+}
+.lead-description ul {
+    display: inline-block;
+    text-align: left;
+    list-style: none;
+}
+.lead-description li::before {
+    content: "⦿ ";
 }

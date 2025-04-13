@@ -1,7 +1,7 @@
 /* Body background color */
 html, body {
     font-family: 'Montserrat';
-    overflow-x: hidden;
+    overflow-y: visible;
     margin: 0;
     min-height: 100vh;
     display: flex;
@@ -18,13 +18,15 @@ body::-webkit-scrollbar {
 }
 /* Add a background color to the top navigation */
 .topnav {
-    overflow: hidden;
+    overflow-y: visible;
     background-color: #283437;
     width: 100%;
     display: flex;
     justify-content: space-between; /* Space between logo and navbar */
     align-items: center;
     padding: 10px 20px;
+    position: relative; /* Ensure the navbar is positioned */
+    z-index: 10000; /* Set a high z-index to bring it above other elements */
 }
 
 .form-container {
@@ -35,13 +37,75 @@ body::-webkit-scrollbar {
 }
 /* Navigation list styling */
 .nav {
-    list-style-type: none; 
+    list-style-type: none;
+    overflow-y: visible; 
     padding: 0;
     margin: 0;
     display: flex;
     justify-content: center; /* Centers the links horizontally */
     flex-grow: 1;
     font-weight: bold; /* Ensures the navbar links are centered even with the logo on the left */
+    position: relative;
+}
+
+.nav > li {
+    position:relative; /* Needed for positioning the dropdown */
+    margin: 15px 15px;
+    z-index: 999999;
+}
+
+.nav > li > a {
+    text-decoration: none;
+    color: #F2F2F2;
+    padding: 10px 15px;
+    display: inline-block;
+    transition: color 0.3s ease;
+    overflow: visible;; /* Ensures the links block out links behind it */
+}
+
+.nav > li > a:hover {
+    color: #60AAA2; /* Change color on hover */
+}
+
+/* Style for the dropdown menu */
+.dropdown {
+    list-style-type:none;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    top: 50%; /* Position below the parent link */
+    left: 0;
+    background-color: #283437; /* Background color for dropdown */
+    display: none; /* Initially hidden */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 0;
+    
+}
+
+.dropdown li {
+    margin: 0;
+}
+
+.dropdown li a {
+    text-decoration: none;
+    color: #F2F2F2;
+    padding: 10px 15px;
+    display: list-item;
+    position: relative;
+    top: 100%;
+    transition: background-color 0.3s ease;
+    overflow-block: visible; /* Ensures the links block out links behind it */
+    z-index: 0; /* Ensures the dropdown links are above the background */
+}
+
+.dropdown li a:hover {
+    background-color: #60AAA2;
+    z-index: 0; /* Highlight on hover */
+}
+
+/* Show the dropdown menu on hover */
+.nav > li:hover .dropdown {
+    display: block;
 }
 
 /* Styling for navbar links */
@@ -52,20 +116,21 @@ body::-webkit-scrollbar {
     text-decoration: none;
     font-size: 17px;
     display: block; /* Ensures links behave like block elements for proper padding */
+    overflow: hidden; /* Ensures the links block out links behind it */
 }
 
 /* Hover effect for links */
 .topnav a:hover {
     background-color: #F2809F;
     color: #F2F2F2;
-    border-radius: 50px;;
+    border-radius: 50px;
 }
 
 /* Active link styling */
 .topnav a.active {
     background-color: #3C4E59;
     color: #F2F2F2;
-    border-radius: 50px;;
+    border-radius: 50px;
 }
 
 /* FSU logo positioning */
@@ -118,17 +183,18 @@ h2 {
     margin-top: 20px; /* Add some space above the button */
 }
 .info-box {
-    text-align: center;
+    text-align: left;
     margin:10px auto;
-    background-color: #f8fbf8;
+    background-color: #283437;
     overflow: hidden;
-    width: 50%;
+    width: 85%;
     align-items: center;
     padding: 20px 20px;
     border-radius: 16px;
 }
 .info-box p {
-    color:#1d2430;
+    color:#F2F2F2;
+    font-size: 20px;
 }
 .pdf-container {
     height: 1000px;
@@ -227,7 +293,9 @@ footer {
     height: 0;
     padding-bottom:100%;
     position: relative;
-    perspective: 1000px; /* Remove this if you don't want the 3D effect */
+    perspective: 1000px;
+    z-index: 10;
+    overflow-block: hidden; /* Remove this if you don't want the 3D effect */
   }
   
   /* This container is needed to position the front and back side */
@@ -264,7 +332,8 @@ footer {
   .flip-card-front img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Ensure image covers the entire area */
+    object-fit: cover;
+    overflow-block:visible; /* Ensure image covers the entire area */
 }
   /* Style the back side */
   .flip-card-back {
@@ -419,7 +488,8 @@ footer {
     width: 30px;
     height: 21px;
     cursor: pointer;
-    z-index: 100;
+    z-index: 0;
+    
   }
   
   .bar1, .bar2, .bar3 {
@@ -459,20 +529,56 @@ footer {
       justify-content: flex-start;
       padding-top: 80px;
       transition: 0.5s;
-      z-index: 90;
+      z-index: 9999; /* Ensure it appears above other elements */
     }
     
     .nav.active {
       right: 0;
+      overflow-block:visible;
+      z-index: 3;
     }
     
     .nav li {
       margin: 20px 0;
+      overflow-block:visible;
+      display:block;;
+      /* Ensures the links block out links behind it */
+      z-index: 0;
+      background-color: #283437;
+      
     }
     
     .topnav {
       justify-content: space-between;
       padding: 10px 20px;
+      position: relative;
+      overflow-block:visible;
+    }
+    .nav.active {
+        right: 0;
+        z-index: 9999; /* Ensure it appears above other elements */
+    }
+
+    .nav li {
+        margin: 20px 0;
+        position: relative; /* Ensure dropdowns are positioned correctly */
+        z-index: 9999; /* Ensure dropdown links are above other links */
+    }
+
+    .dropdown {
+        position: relative; /* Adjust position for mobile view */
+        top: 0;
+        right:50;
+        display: none; /* Initially hidden */
+        z-index: 9999; /* Ensure it appears above other elements */
+    }
+
+    .nav li:hover .dropdown {
+        display: block; /* Show dropdown on hover */
+    }
+
+    .dropdown li a {
+        padding: 10px 20px;
     }
 }
 #email {
@@ -480,4 +586,15 @@ footer {
     color: #6db9c9;
     overflow-wrap: break-word;
     white-space: normal;
+}
+
+.special-link {
+    color: #D5718C; /* Bright orange color */
+    font-weight: bold; /* Make the text bold */
+    text-decoration: underline; /* Add an underline */
+    transition: color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.special-link:hover {
+    color: #BBBBBB; /* Darker red color on hover */
 }

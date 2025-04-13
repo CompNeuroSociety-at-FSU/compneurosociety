@@ -289,7 +289,6 @@ footer {
     position: relative;
     perspective: 1000px;
     z-index: 10;
-    overflow-block: hidden; /* Remove this if you don't want the 3D effect */
   }
   
   /* This container is needed to position the front and back side */
@@ -327,13 +326,14 @@ footer {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    overflow-block:visible; /* Ensure image covers the entire area */
+    overflow-block: hidden;
 }
   /* Style the back side */
   .flip-card-back {
     background-color: #283437;
     color: white;
     transform: rotateY(180deg);
+    
   }
   .announcement {
     display: flex;
@@ -345,6 +345,12 @@ footer {
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
+@media (min-width: 768px) and (max-width: 1024px) {
+    .flip-card-container {
+      grid-template-columns: 1fr;
+    }
+  }
+  
 
 .announcement-text {
     flex: 1; /* Allows the text area to take up available space */

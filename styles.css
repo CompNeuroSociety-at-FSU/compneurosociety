@@ -26,7 +26,7 @@ body::-webkit-scrollbar {
     justify-content: space-between; /* Space between logo and navbar */
     align-items: center;
     padding: 10px 20px;
-    z-index: 10000;
+    z-index: 10;
 }
 
 .form-container {
@@ -95,7 +95,7 @@ body::-webkit-scrollbar {
 }
 
 .dropdown li a:hover {
-    background-color: #60AAA2;
+    background-color: #F2809F;
     z-index: 0; /* Highlight on hover */
 }
 
@@ -103,6 +103,25 @@ body::-webkit-scrollbar {
 .nav > li:hover .dropdown {
     display: block;
 }
+/* Dropdown indicator for mobile */
+.dropdown-indicator {
+    display: none; /* Hidden on desktop */
+    margin-left: 8px;
+    transition: transform 0.3s ease;
+    width: 10px;
+    height: 10px;
+    border-right: 2px solid #F2F2F2;
+    border-bottom: 2px solid #F2F2F2;
+    transform: rotate(45deg);
+    position: relative;
+    top: -2px;
+  }
+  
+  /* Rotated indicator when dropdown is open */
+  .dropdown-open .dropdown-indicator {
+    transform: rotate(-135deg);
+    top: 2px;
+  }
 
 /* Styling for navbar links */
 .topnav a {
@@ -116,11 +135,14 @@ body::-webkit-scrollbar {
 }
 
 /* Hover effect for links */
-.topnav a:hover {
-    background-color: #F2809F;
-    color: #F2F2F2;
-    border-radius: 50px;
+@media (hover: hover) and (pointer: fine) {
+    .topnav a:hover {
+      background-color: #F2809F;
+      color: #F2F2F2;
+      border-radius: 50px;
+    }
 }
+  
 
 /* Active link styling */
 .topnav a.active {
@@ -288,7 +310,7 @@ footer {
     padding-bottom:100%;
     position: relative;
     perspective: 1000px;
-    z-index: 10;
+    z-index: 5;
   }
   
   /* This container is needed to position the front and back side */
@@ -488,8 +510,7 @@ footer {
     width: 30px;
     height: 21px;
     cursor: pointer;
-    z-index: 0;
-    
+    z-index: 15;
   }
   
   .bar1, .bar2, .bar3 {
@@ -516,6 +537,7 @@ footer {
   @media screen and (max-width: 768px) {
     .hamburger-menu {
       display: flex;
+      z-index: 15;
     }
     
     .nav {
@@ -529,7 +551,7 @@ footer {
       justify-content: flex-start;
       padding-top: 80px;
       transition: 0.5s;
-      z-index: 9999; /* Ensure it appears above other elements */
+      z-index: 10; /* Ensure it appears above other elements */
     }
     
     .nav.active {
@@ -556,13 +578,13 @@ footer {
     }
     .nav.active {
         right: 0;
-        z-index: 9999; /* Ensure it appears above other elements */
+        z-index: 10; /* Ensure it appears above other elements */
     }
 
     .nav li {
         margin: 20px 0;
         position: relative; /* Ensure dropdowns are positioned correctly */
-        z-index: 9999; /* Ensure dropdown links are above other links */
+        z-index: 10; /* Ensure dropdown links are above other links */
     }
 
     .dropdown {
@@ -570,13 +592,21 @@ footer {
         top: 0;
         right:50;
         display: none; /* Initially hidden */
-        z-index: 9999; /* Ensure it appears above other elements */
+        z-index: 10; /* Ensure it appears above other elements */
+    }
+    .dropdown-indicator {
+        display: inline-block; /* Only show on mobile */
     }
 
     .nav li:hover .dropdown {
-        display: block; /* Show dropdown on hover */
+        display: none !important; 
     }
-
+    .nav li:hover .dropdown.show {
+        display: block !important; /* BUT allow show class to override */
+    }
+    .dropdown.show {
+        display: block !important;
+      }
     .dropdown li a {
         padding: 10px 20px;
     }

@@ -334,8 +334,17 @@ footer {
     color: white;
     transform: rotateY(180deg);
     
-  }
-  .announcement {
+}
+.flip-card-back a {
+    color: #D5718C; /* Replace with your desired link color */
+    text-decoration: underline; /* Optional: Adds underline to links */
+    transition: color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.flip-card-back a:hover {
+    color: #BBBBBB; /* Replace with your desired hover color */
+}
+.announcement {
     display: flex;
     align-items: flex-start;
     gap: 20px;

@@ -47,9 +47,9 @@
                 <li><a href="about.html">About</a>
                     <li><a href="leadership.html">People</a>
                         <ul class="dropdown">
-                            <li><a href="leadership.html" class="active">Leadership</a></li>
+                            <li><a href="leadership.html">Leadership</a></li>
                             <li><a href="mentors.html">Mentors</a></li>
-                            <li><a href="team.html">The Team</a></li>
+                            <li><a href="team.html" class="active" >The Team</a></li>
                             <li><a href="join.html">Join Us!</a></li>
                         </ul></li>
                     <li><a href="events.html">Events</a>
@@ -64,72 +64,61 @@
                 <a href="https://www.fsu.edu/" target="_blank"><img src="images/fsu.png" width="80" height="50" /></a> 
             </div>
         </div>
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                const flipCardFronts = document.querySelectorAll(".flip-card-front img");
+        
+                flipCardFronts.forEach((img) => {
+                    if (img.src.includes("images/1f9e0.png") || img.src.includes("images/1f9e0.png")) {
+                        const randomHue = Math.floor(Math.random() * 360); // Generate a random hue value
+                        img.style.filter = `hue-rotate(${randomHue}deg)`; // Apply hue rotation
+                    }
+                });
+            });
+        </script>
+        <div class="header">
+            <h1>Meet Our Team Members!</h1>
+            <h2>We are a group of passionate students interested in the field of computational neuroscience.</h2>
         <div class="flip-card-container">
             <div class="flip-card">
                 <div class="flip-card-inner">
                     <div class="flip-card-front">
-                        <img src="images/sebas.png" alt="Avatar">
+                        <img src="images/1f9e0.png" alt="Brain Icon" width="80" height="80">
                     </div>
                     <div class="flip-card-back">
-                        <h1>Sebas Ruiz</h1> 
-                        <p>Founder + President</p>
-                        <p> I interned this past summer at Carnegie Mellon and plan to intern at Brown this summer, both in the field of Computational Neuroscience. I make alt-hiphop beats and take film pictures for fun (ask to see them!)​</p>
-                        <a href="https://example.com" target="_blank"></a>
-                        <a href="https://sebastianruizsebas.github.io/website" target="_blank">Personal Website</a>
-                        <a href="https://www.linkedin.com/in/sebastiansebasruiz/" target="_blank"><svg id="linkedin" xmlns="http://www.w3.org/2000/svg" width="25" height="25" class="bi bi-linkedin" viewBox="0 0 16 16">
-                            <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z"/>
-                        </svg></a>
+                        <h1>John Doe</h1>
+                        <p>Role: Team Member</p>
+                        <p>Interests: Neuroscience, AI, and Data Science</p>
+                        <p>Fun Fact: Loves hiking and photography!</p>
                     </div>
                 </div>
             </div>
             <div class="flip-card">
                 <div class="flip-card-inner">
                     <div class="flip-card-front">
-                        <img src="images/upi.jpg" alt="Avatar">
+                        <img src="images/1f9e0.png" alt="Brain Icon" width="80" height="80">
                     </div>
                     <div class="flip-card-back">
-                        <h1>Upi Shanker</h1> 
-                        <p>Vice-President + Website Coordinator</p>
-                        <p>I am a Freshman at FSU where I am a research assistant, data analytics intern, and front-end web developer. Outside of academics, I enjoy playing basketball and listening to music!</p>
-                        <a href="https://www.linkedin.com/in/upishanker/" target="_blank"><svg id="linkedin" xmlns="http://www.w3.org/2000/svg" width="25" height="25" class="bi bi-linkedin" viewBox="0 0 16 16">
-                            <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z"/>
-                        </svg></a>
-                        
+                        <h1>Jane Smith</h1>
+                        <p>Role: Team Member</p>
+                        <p>Interests: Computational Biology and Machine Learning</p>
+                        <p>Fun Fact: Enjoys painting and playing the piano!</p>
                     </div>
                 </div>
             </div>
             <div class="flip-card">
                 <div class="flip-card-inner">
                     <div class="flip-card-front">
-                        <img src="images/hafsa.png" alt="Avatar">
+                        <img src="images/1f9e0.png" alt="Brain Icon" width="80" height="80">
                     </div>
                     <div class="flip-card-back">
-                        <h1>Hafsa Baysal</h1> 
-                        <p>Treasurer</p>
-                        <p>I'm a second year and I never want to join the work field. I'm part of the Wilber Lab on campus and I am interested in dementia research. I enjoy quality time with friends and reading!​</p>
+                        <h1>Alex Johnson</h1>
+                        <p>Role: Team Member</p>
+                        <p>Interests: Brain-Computer Interfaces and Robotics</p>
+                        <p>Fun Fact: Avid gamer and chess enthusiast!</p>
                     </div>
                 </div>
             </div>
-            <div class="flip-card">
-                <div class="flip-card-inner">
-                    <div class="flip-card-front">
-                        <img src="images/sia.png" alt="Avatar">
-                    </div>
-                    <div class="flip-card-back">
-                        <h1>Sia Kakkar</h1> 
-                        <p>Secretary</p>
-                        <p> I am a sophomore and enjoy doing neuroscience research, particularly on the cognitive effects of eating disorders. I also enjoy playing tennis and painting!</p>
-                        <a href="https://www.linkedin.com/in/sia-kakkar-a4b77427b/" target="_blank"><svg id="linkedin" xmlns="http://www.w3.org/2000/svg" width="25" height="25" class="bi bi-linkedin" viewBox="0 0 16 16">
-                            <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z"/>
-                        </svg></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <h1>Apply to Join the Leadership Team</h1>
-        <h2>Interested in joining the leadership team? Fill out the form below to apply!</h2>
-        <div class="form-container">
-            <iframe width="840px" height="480px" src="https://forms.office.com/Pages/ResponsePage.aspx?id=61Bkowbbp0KNGwJnGfcB49osQfviY_ZIuepOnhXhtuZUOTlLOUNTQkJBTUtWMDlLQTFLQlZLUEhBTS4u&embed=true" frameborder="0" marginwidth="0" marginheight="0" style="border: none; max-width:100%; max-height:100vh" allowfullscreen webkitallowfullscreen mozallowfullscreen msallowfullscreen> </iframe>
         </div>
         <script src="navbar.js"></script>
         <footer>
@@ -150,3 +139,4 @@
             </footer>
     </body>
 </html>
+

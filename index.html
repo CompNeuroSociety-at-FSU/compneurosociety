@@ -66,10 +66,37 @@
         </div>
         <h1>Welcome to CompNeuroSociety at FSU</h1>
         <h2>Fostering a community dedicated to the field of computational neuroscience at FSU.</h2>
-        <div class="center-button"><a href="membership.html"><button class="btn-oval">Join Us!</button></a></div>
+        <div class="center-button"><a href="join.html"><button class="btn-oval">Join Us!</button></a></div>
         <div id="brain-container"></div>
         <script type ="module" src="brain.js"></script>
         <script src="navbar.js"></script>
+        <script>
+        document.querySelectorAll('.btn-oval').forEach(btn => {
+          btn.addEventListener('click', function(e) {
+            // Prevent immediate navigation if inside a link
+            const parentLink = btn.closest('a[href]');
+            if (parentLink) {
+              e.preventDefault();
+            }
+            // Ripple effect
+            const rect = btn.getBoundingClientRect();
+            const ripple = document.createElement('span');
+            ripple.className = 'ripple';
+            const size = Math.max(rect.width, rect.height);
+            ripple.style.width = ripple.style.height = size + 'px';
+            ripple.style.left = (e.clientX - rect.left - size / 2) + 'px';
+            ripple.style.top = (e.clientY - rect.top - size / 2) + 'px';
+            btn.appendChild(ripple);
+            ripple.addEventListener('animationend', () => ripple.remove());
+            // Delay navigation
+            if (parentLink) {
+              setTimeout(() => {
+                window.location.href = parentLink.href;
+              }, 500); // 500ms delay
+            }
+          });
+        });
+        </script>
         <footer>
             <img id="club-logo" src="images/logo.jpeg"></img>
             <div id="icons">

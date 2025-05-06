@@ -657,7 +657,7 @@ footer {
       right: -100%;
       width: 70%;
       height: 100vh;
-      background-color: #283437;
+      background-color: #ffffff;
       flex-direction: column;
       justify-content: flex-start;
       padding-top: 80px;
@@ -677,7 +677,7 @@ footer {
       display:block;
       /* Ensures the links block out links behind it */
       z-index: 0;
-      background-color: #283437;
+      background-color: #ffffff;
       
     }
     

@@ -590,6 +590,7 @@ footer {
     box-shadow: 0 2px 8px rgba(79, 140, 255, 0.08);
     opacity: 0;
     animation: eventPopIn 0.7s ease forwards;
+    cursor: pointer;
 }
 .event h3, .event p {
     text-align: left;

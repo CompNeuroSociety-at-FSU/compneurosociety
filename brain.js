@@ -1,109 +1,110 @@
 // Import the THREE.js library
 import * as THREE from "https://cdn.skypack.dev/three@0.129.0/build/three.module.js";
-// To allow for the camera to move around the scene
+// Camera controls
 import { OrbitControls } from "https://cdn.skypack.dev/three@0.129.0/examples/jsm/controls/OrbitControls.js";
-// To allow for importing the .obj file
+// GLTF loader
 import { GLTFLoader } from "https://cdn.skypack.dev/three@0.129.0/examples/jsm/loaders/GLTFLoader.js";
 
-// Create a Three.JS Scene
+// Scene and Camera Setup
 const scene = new THREE.Scene();
-scene.background = null; // Transparent background
-// Create a new camera with positions and angles
-const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.5, 1000); //
+scene.background = null;
 
+const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.5, 1000);
+camera.position.set(0, 0, 4);
+camera.lookAt(0, 0, 0);
+
+// Renderer Setup
+const container = document.getElementById("brain-container");
+const renderer = new THREE.WebGLRenderer({ alpha: true });
+renderer.setSize(container.offsetWidth, container.offsetHeight);
+renderer.setPixelRatio(window.devicePixelRatio);
+container.appendChild(renderer.domElement);
+
+// Lighting
+const ambientLight = new THREE.AmbientLight(0x999999, 1.5);
+scene.add(ambientLight);
+
+// Orbit Controls
+const controls = new OrbitControls(camera, renderer.domElement);
+controls.enableZoom = false;
+controls.enablePan = false;
+controls.enableDamping = true;
+controls.dampingFactor = 0.05;
+
+// Load GLTF Model
 let object;
-let controls;
-let animationFrameId; // Store the animation frame ID
 const loader = new GLTFLoader();
-
-// Load the GLTF file
 loader.load(
   'brain_realistic_free/scene.gltf',
   function (gltf) {
     object = gltf.scene;
-    object.position.set(0, 0, 0); // Center the object
-    scene.add(object);
-    // Store all mesh materials for MRI effect
+
+    // Center
+    const box = new THREE.Box3().setFromObject(object);
+    const center = new THREE.Vector3();
+    box.getCenter(center);
+    object.position.sub(center);
+
+    // Normalize scale
+    const size = new THREE.Vector3();
+    box.getSize(size);
+    const maxDim = Math.max(size.x, size.y, size.z);
+    const scale = 2 / maxDim; // Scale to fit within 2 units max
+    object.scale.setScalar(scale);
+    object.scale.set(1, 1, 1);
+    // MRI effect setup
     object.traverse((child) => {
-      if (child.isMesh && child.material) {
-        // Ensure the material supports emissive
-        if (child.material.emissive) {
-          child.material.emissiveIntensity = 0.7;
-          // Assign a random phase for MRI activity
-          child.userData.mriPhase = Math.random() * Math.PI * 2;
-        }
+      if (child.isMesh && child.material && child.material.emissive) {
+        child.material.emissiveIntensity = 0.7;
+        child.userData.mriPhase = Math.random() * Math.PI * 2;
       }
     });
-    console.log('GLTF object loaded:', object); // Debug log
+
+    scene.add(object);
+    console.log('GLTF object loaded, centered, and scaled.');
   },
   function (xhr) {
-    // While it is loading, log the progress
     console.log((xhr.loaded / xhr.total) * 100 + "% loaded");
   },
   function (error) {
-    // If there is an error, log it
-    console.error(error);
+    console.error("Error loading GLTF:", error);
   }
 );
 
-// Get the container's size
-const container = document.getElementById("brain-container");
-const containerWidth = container.offsetWidth;
-const containerHeight = container.offsetHeight;
-
-const renderer = new THREE.WebGLRenderer({ alpha: true }); // Alpha: true allows for the transparent background
-renderer.setSize(containerWidth, containerHeight);
-renderer.setPixelRatio(window.devicePixelRatio);
-container.appendChild(renderer.domElement);
-
-camera.aspect = containerWidth / containerHeight;
-camera.updateProjectionMatrix();
-
-camera.position.set(0, 0, 4); // Move camera closer to the object for a zoomed-in view
-camera.lookAt(0, 0, 0); // Ensure camera looks at the model
-
-// Use only ambient light:
-const ambientLight = new THREE.AmbientLight(0x999999, 1.5); // Grey ambient light
-scene.add(ambientLight);
-
-// Add controls to the camera, so we can rotate/zoom it with the mouse
-controls = new OrbitControls(camera, renderer.domElement);
-controls.enableZoom = false;
-controls.enablePan = false;
 
 // Helper: interpolate between two colors
 function lerpColor(a, b, t) {
   return a.clone().lerp(b, t);
 }
 
-// Render the scene
+// Animation Loop
 function animate() {
-  animationFrameId = requestAnimationFrame(animate);
-  // MRI activity simulation
+  requestAnimationFrame(animate);
+
   if (object) {
     object.traverse((child) => {
       if (child.isMesh && child.material && child.material.emissive) {
-        // Gradually shift from yellow to blue every 3 seconds
-        const period = 3000; // 3 seconds in ms
+        const period = 3000;
         const time = (performance.now() + (child.userData.mriPhase || 0) * 1000) % period;
-        const t = 0.5 * (1 - Math.cos((2 * Math.PI * time) / period)); // Smooth oscillation between 0 and 1
+        const t = 0.5 * (1 - Math.cos((2 * Math.PI * time) / period));
         const yellow = new THREE.Color(0xffff00);
         const blue = new THREE.Color(0x0000ff);
         child.material.emissive = lerpColor(blue, yellow, t);
       }
     });
   }
+
+  controls.update(); // Required when damping is enabled
   renderer.render(scene, camera);
 }
 
-// Update resize event to use container size
-window.addEventListener("resize", function () {
+animate();
+
+// Handle window resize
+window.addEventListener("resize", () => {
   const width = container.offsetWidth;
   const height = container.offsetHeight;
   camera.aspect = width / height;
   camera.updateProjectionMatrix();
   renderer.setSize(width, height);
 });
-
-animate();
-

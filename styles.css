@@ -384,13 +384,30 @@ footer {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 20px; /* Space between rows */
-    width: 90vw; /* Adjust width as needed */
-    margin: 20px auto; /* Center the container */
+    width: 100vw; /* Adjust width as needed */
+    margin: 0 auto; /* Center the container */
     padding: 10px;
-    max-width: 1200px;
+    justify-items: center;
+    max-width: 1500px;
 }
 
 
+.mentor-flip-card-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px; /* Adjust gap as needed */
+    padding: 10px;
+    margin: 0 auto; /* Center the container */
+    justify-items: center;
+}
+.mentor-flip-card-container .mentor-card {
+    width: 100%;
+    max-width: 400px; /* Optional: control card width */
+    margin: 0;
+    height: 400px;
+    aspect-ratio: 1 / 1;
+    padding-bottom: 0;
+}
 /* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
 .flip-card {
     background-color: transparent;
@@ -447,17 +464,19 @@ footer {
     
 }
 .flip-card-back h1 {
-    font-size: 3rem;
+    font-size: 1.5rem;
+    color:azure;
 }
 .flip-card-back p {
-    font-size: 2rem;
-    line-height: 1.5;
-    color: #D5718C; /* Replace with your desired text color */
+    font-size:  large;
+    font-weight: bold;
+    line-height: 1;
+    color: #f6b6c7; /* Replace with your desired text color */
     margin: 0; /* Remove default margin */
     padding: 20px; /* Add padding for better spacing */
 }
 .flip-card-back a {
-    color: #D5718C; /* Replace with your desired link color */
+    color: #efd4db; /* Replace with your desired link color */
     text-decoration: underline; /* Optional: Adds underline to links */
     transition: color 0.3s ease; /* Smooth transition for hover effect */
 }
@@ -731,7 +750,7 @@ footer {
 }
 
 .special-link {
-    color: #ff7e6b; /* Bright orange color */
+    color: #f6b6c7; /* Bright orange color */
     font-weight: bold; /* Make the text bold */
     text-decoration: underline; /* Add an underline */
     transition: color 0.3s ease; /* Smooth transition for hover effect */

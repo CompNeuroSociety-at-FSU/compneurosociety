@@ -385,8 +385,8 @@ footer {
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 20px; /* Space between rows */
     width: 100vw; /* Adjust width as needed */
-    margin: 0 auto; /* Center the container */
-    padding: 10px;
+    margin: 5 auto; /* Center the container */
+    padding: 0px;
     justify-items: center;
     max-width: 1500px;
 }
@@ -396,9 +396,8 @@ footer {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 24px; /* Adjust gap as needed */
-    padding: 10px;
+    padding: 0px;
     margin: 0 auto; /* Center the container */
-    justify-items: center;
 }
 .mentor-flip-card-container .mentor-card {
     width: 100%;
@@ -465,18 +464,19 @@ footer {
 }
 .flip-card-back h1 {
     font-size: 1.5rem;
+    margin-top: 0%;
     color:azure;
 }
 .flip-card-back p {
-    font-size:  large;
-    font-weight: bold;
+    font-size:  medium;
     line-height: 1;
     color: #f6b6c7; /* Replace with your desired text color */
     margin: 0; /* Remove default margin */
-    padding: 20px; /* Add padding for better spacing */
+    padding: 0; /* Add padding for better spacing */
 }
 .flip-card-back a {
-    color: #efd4db; /* Replace with your desired link color */
+    color: #efd4db;
+    font-size: medium; /* Replace with your desired link color */
     text-decoration: underline; /* Optional: Adds underline to links */
     transition: color 0.3s ease; /* Smooth transition for hover effect */
 }
@@ -496,7 +496,8 @@ footer {
 }
 @media (min-width: 768px) and (max-width: 1024px) {
     .flip-card-container {
-      grid-template-columns: 1fr;
+      grid-template-columns: 1fr; /* Stack cards vertically */
+
     }
   }
   
@@ -580,7 +581,7 @@ footer {
        margin-left: 100px;
     }
     .flip-card-back {
-        font-size: 5rem;
+        font-size: smaller;
     }
 }
 .events-container::-webkit-scrollbar { 
@@ -647,7 +648,7 @@ footer {
   .bar1, .bar2, .bar3 {
     width: 100%;
     height: 3px;
-    background-color: #F2F2F2;
+    background-color: #363434;
     transition: 0.4s;
   }
   
@@ -741,6 +742,13 @@ footer {
     .dropdown li a {
         padding: 10px 20px;
     }
+    .mentor-flip-card-container {
+        grid-template-columns: 1fr; /* Stack cards vertically */
+        gap: 20px; /* Adjust gap as needed */
+    }
+    .special-link {
+        line-height: 1;
+    }
 }
 #email {
     text-decoration: none;
@@ -753,7 +761,8 @@ footer {
     color: #f6b6c7; /* Bright orange color */
     font-weight: bold; /* Make the text bold */
     text-decoration: underline; /* Add an underline */
-    transition: color 0.3s ease; /* Smooth transition for hover effect */
+    transition: color 0.3s ease;
+    line-height: 1.2; /* Smooth transition for hover effect */
 }
 
 .special-link:hover {

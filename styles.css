@@ -283,10 +283,10 @@ h2 {
     align-items: center;
     width: 600px;
     height: 600px;
-    position: static;
+    position: relative;
     background: transparent !important;
     overflow: visible;
-    z-index: 1;
+    z-index: 2;
 }
 canvas {
     display: block;
@@ -298,6 +298,7 @@ canvas {
     z-index: 2;
     top: 0; /* Remove or set to 0 for vertical alignment */
 }
+
 footer {
     /* Modern left-to-right gradient */
     background: linear-gradient(-90deg, #283437 20%, #181a24 100%);

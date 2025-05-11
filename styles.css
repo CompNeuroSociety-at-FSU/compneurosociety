@@ -283,10 +283,10 @@ h2 {
     align-items: center;
     width: 600px;
     height: 600px;
-    position: static;
+    position: relative;
     background: transparent !important;
     overflow: visible;
-    z-index: 1;
+    z-index: 2;
 }
 canvas {
     display: block;
@@ -298,6 +298,7 @@ canvas {
     z-index: 2;
     top: 0; /* Remove or set to 0 for vertical alignment */
 }
+
 footer {
     /* Modern left-to-right gradient */
     background: linear-gradient(-90deg, #283437 20%, #181a24 100%);
@@ -383,13 +384,29 @@ footer {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 20px; /* Space between rows */
-    width: 90vw; /* Adjust width as needed */
-    margin: 20px auto; /* Center the container */
-    padding: 10px;
-    max-width: 1200px;
+    width: 100vw; /* Adjust width as needed */
+    margin: 5 auto; /* Center the container */
+    padding: 0px;
+    justify-items: center;
+    max-width: 1500px;
 }
 
 
+.mentor-flip-card-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px; /* Adjust gap as needed */
+    padding: 0px;
+    margin: 0 auto; /* Center the container */
+}
+.mentor-flip-card-container .mentor-card {
+    width: 100%;
+    max-width: 400px; /* Optional: control card width */
+    margin: 0;
+    height: 400px;
+    aspect-ratio: 1 / 1;
+    padding-bottom: 0;
+}
 /* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
 .flip-card {
     background-color: transparent;
@@ -447,17 +464,19 @@ footer {
 }
 .flip-card-back h1 {
     font-size: 1.5rem;
+    margin-top: 0%;
+    color:azure;
 }
 .flip-card-back p {
-    font-size: 0.9rem;
-    line-height: 1.5;
-    color: #D5718C; /* Replace with your desired text color */
+    font-size:  medium;
+    line-height: 1;
+    color: #f6b6c7; /* Replace with your desired text color */
     margin: 0; /* Remove default margin */
-    padding: 5px; /* Add padding for better spacing */
+    padding: 0; /* Add padding for better spacing */
 }
 .flip-card-back a {
-    font-size: 0.9rem;
-    color: #D5718C; /* Replace with your desired link color */
+    color: #efd4db;
+    font-size: medium; /* Replace with your desired link color */
     text-decoration: underline; /* Optional: Adds underline to links */
     transition: color 0.3s ease; /* Smooth transition for hover effect */
 }
@@ -477,7 +496,8 @@ footer {
 }
 @media (min-width: 768px) and (max-width: 1024px) {
     .flip-card-container {
-      grid-template-columns: 1fr;
+      grid-template-columns: 1fr; /* Stack cards vertically */
+
     }
   }
   
@@ -561,7 +581,7 @@ footer {
        margin-left: 100px;
     }
     .flip-card-back {
-        font-size: 5rem;
+        font-size: smaller;
     }
 }
 .events-container::-webkit-scrollbar { 
@@ -629,7 +649,7 @@ footer {
   .bar1, .bar2, .bar3 {
     width: 100%;
     height: 3px;
-    background-color: black;
+    background-color: #363434;
     transition: 0.4s;
   }
   
@@ -687,7 +707,7 @@ footer {
       justify-content: space-between;
       padding: 10px 20px;
       position: relative;
-      overflow-block:visible;
+      overflow-block: visible;
     }
     .nav.active {
         right: 0;
@@ -723,6 +743,13 @@ footer {
     .dropdown li a {
         padding: 10px 20px;
     }
+    .mentor-flip-card-container {
+        grid-template-columns: 1fr; /* Stack cards vertically */
+        gap: 20px; /* Adjust gap as needed */
+    }
+    .special-link {
+        line-height: 1;
+    }
 }
 #email {
     text-decoration: none;
@@ -732,10 +759,11 @@ footer {
 }
 
 .special-link {
-    color: #ff7e6b; /* Bright orange color */
+    color: #f6b6c7; /* Bright orange color */
     font-weight: bold; /* Make the text bold */
     text-decoration: underline; /* Add an underline */
-    transition: color 0.3s ease; /* Smooth transition for hover effect */
+    transition: color 0.3s ease;
+    line-height: 1.2; /* Smooth transition for hover effect */
 }
 
 .special-link:hover {

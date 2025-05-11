@@ -67,9 +67,20 @@
         <h1>Welcome to CompNeuroSociety at FSU</h1>
         <h2>Fostering a community dedicated to the field of computational neuroscience at FSU.</h2>
         <div class="center-button"><a href="join.html"><button class="btn-oval">Join Us!</button></a></div>
-        <div id="brain-container"></div>
-        <script type ="module" src="brain.js"></script>
+        <script type="importmap">
+            {
+                "imports": {
+                    "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+                    "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+                }
+            }
+        </script>
+        <div id="brain-container">
+            <canvas id="canvas"></canvas>
+        </div>
+        <script type="module" src="script_subsurface.js"></script>
         <script src="navbar.js"></script>
+        
         <script>
         document.querySelectorAll('.btn-oval').forEach(btn => {
           btn.addEventListener('click', function(e) {
@@ -97,6 +108,7 @@
           });
         });
         </script>
+        
         <footer>
             <img id="club-logo" src="images/logo.jpeg"></img>
             <div id="icons">

@@ -685,7 +685,7 @@ footer {
       justify-content: space-between;
       padding: 10px 20px;
       position: relative;
-      overflow-block:visible;
+      overflow-block: visible;
     }
     .nav.active {
         right: 0;

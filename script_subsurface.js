@@ -406,7 +406,7 @@ import { TextGeometry } from 'three/addons/geometries/TextGeometry.js';
 			setTimeout(() => {
 				requestAnimationFrame(animate);
 				render();
-			}, 1000 / 24); // 24 FPS
+			}, 1000 / 20); // 24 FPS
 		}
 
 		function render() {

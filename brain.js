@@ -38,8 +38,9 @@ loader.load(
   'brain_realistic_free/scene.gltf',
   function (gltf) {
     object = gltf.scene;
+    scene.add(object); // Add to scene first to compute bounding box accurately
 
-    // Center
+    // Center before scaling
     const box = new THREE.Box3().setFromObject(object);
     const center = new THREE.Vector3();
     box.getCenter(center);
@@ -49,9 +50,14 @@ loader.load(
     const size = new THREE.Vector3();
     box.getSize(size);
     const maxDim = Math.max(size.x, size.y, size.z);
-    const scale = 2 / maxDim; // Scale to fit within 2 units max
-    object.scale.setScalar(scale);
-    object.scale.set(1, 1, 1);
+    const scale = 3.5 / maxDim; // Scale larger than default
+    object.scale.set(scale * 1.2, scale, scale); // Wider in X only
+    // Re-center after scaling
+    const scaledBox = new THREE.Box3().setFromObject(object);
+    const scaledCenter = new THREE.Vector3();
+    scaledBox.getCenter(scaledCenter);
+    object.position.sub(scaledCenter);
+
     // MRI effect setup
     object.traverse((child) => {
       if (child.isMesh && child.material && child.material.emissive) {
@@ -60,8 +66,7 @@ loader.load(
       }
     });
 
-    scene.add(object);
-    console.log('GLTF object loaded, centered, and scaled.');
+    console.log('GLTF object loaded, scaled, and centered.');
   },
   function (xhr) {
     console.log((xhr.loaded / xhr.total) * 100 + "% loaded");
@@ -70,7 +75,6 @@ loader.load(
     console.error("Error loading GLTF:", error);
   }
 );
-
 
 // Helper: interpolate between two colors
 function lerpColor(a, b, t) {

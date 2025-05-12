@@ -759,7 +759,6 @@ footer {
     overflow-wrap: break-word;
     white-space: normal;
 }
-
 .special-link {
     color: #f6b6c7; /* Bright orange color */
     font-weight: bold; /* Make the text bold */
@@ -873,3 +872,15 @@ input:checked + .slider:before {
     transform: translateX(26px);
 }
   
+=======
+.markdown-container {
+    display: flex;
+    justify-content: center;
+}
+.markdown-body {
+    box-sizing: border-box;
+    min-width: 200px;
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 45px;
+}

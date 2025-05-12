@@ -389,6 +389,8 @@ footer {
     padding: 0px;
     justify-items: center;
     max-width: 1500px;
+    margin-top: 20px;
+    margin-bottom: 10px;
 }
 
 
@@ -398,6 +400,7 @@ footer {
     gap: 24px; /* Adjust gap as needed */
     padding: 0px;
     margin: 0 auto; /* Center the container */
+    margin-top: 20px;
 }
 .mentor-flip-card-container .mentor-card {
     width: 100%;
@@ -464,14 +467,13 @@ footer {
 }
 .flip-card-back h1 {
     font-size: 1.5rem;
-    margin-top: 0%;
+    margin-top: 10px;
     color:azure;
 }
 .flip-card-back p {
     font-size:  medium;
     line-height: 1;
     color: #f6b6c7; /* Replace with your desired text color */
-    margin: 0; /* Remove default margin */
     padding: 0; /* Add padding for better spacing */
 }
 .flip-card-back a {

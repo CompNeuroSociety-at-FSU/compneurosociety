@@ -43,12 +43,21 @@
                 <div class="bar3"></div>
             </div>
             <ul class="nav">
-                <li><a class="active" href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="membership.html">Membership</a></li>
-                <li><a href="events.html">Events</a></li>
-                <li><a href="leadership.html">Leadership</a></li>
-                <li><a href="sponsors.html"> Sponsors</a></li>
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="about.html">About</a>
+                        <li><a href="leadership.html">People</a>
+                            <ul class="dropdown">
+                                <li><a href="leadership.html">Leadership</a></li>
+                                <li><a href="mentors.html">Mentors</a></li>
+                                <li><a href="team.html">The Team</a></li>
+                                <li><a href="join.html">Join Us!</a></li>
+                            </ul></li>
+                        <li><a href="events.html">Events</a>
+                            <ul class="dropdown">
+                                <li><a href="leadevent.html">Lead an Event!</a></li>
+                                <li><a href="events.html">Upcoming Events!</a></li>
+                            </ul></li></li>
+                    <li><a href="sponsors.html"> Sponsors</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
             <div id="fsu-logo">
@@ -57,10 +66,56 @@
         </div>
         <h1>Welcome to CompNeuroSociety at FSU</h1>
         <h2>Fostering a community dedicated to the field of computational neuroscience at FSU.</h2>
-        <div class="center-button"><a href="membership.html"><button class="btn-oval">Join Us!</button></a></div>
-        <div id="brain-container"></div>
-        <script type ="module" src="brain.js"></script>
+        <div class="center-button"><a href="join.html"><button class="btn-oval">Join Us!</button></a></div>
+        <script type="importmap">
+            {
+                "imports": {
+                    "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+                    "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+                }
+            }
+        </script>
+        <div id="brain-container">
+            <canvas id="canvas"></canvas>
+        </div>
+        <div id="toggle-container">
+            <label class="switch">
+              <input type="checkbox" id="toggle-brain-model" checked />
+              <span class="slider round"></span>
+            </label>
+            <label for="toggle-brain-model" style="font-weight: 600;">Enable Brain Model Visualization</label>
+          </div>
+        <script type="module" src="script_subsurface.js"></script>
         <script src="navbar.js"></script>
+        
+        <script>
+        document.querySelectorAll('.btn-oval').forEach(btn => {
+          btn.addEventListener('click', function(e) {
+            // Prevent immediate navigation if inside a link
+            const parentLink = btn.closest('a[href]');
+            if (parentLink) {
+              e.preventDefault();
+            }
+            // Ripple effect
+            const rect = btn.getBoundingClientRect();
+            const ripple = document.createElement('span');
+            ripple.className = 'ripple';
+            const size = Math.max(rect.width, rect.height);
+            ripple.style.width = ripple.style.height = size + 'px';
+            ripple.style.left = (e.clientX - rect.left - size / 2) + 'px';
+            ripple.style.top = (e.clientY - rect.top - size / 2) + 'px';
+            btn.appendChild(ripple);
+            ripple.addEventListener('animationend', () => ripple.remove());
+            // Delay navigation
+            if (parentLink) {
+              setTimeout(() => {
+                window.location.href = parentLink.href;
+              }, 500); // 500ms delay
+            }
+          });
+        });
+        </script>
+        
         <footer>
             <img id="club-logo" src="images/logo.jpeg"></img>
             <div id="icons">

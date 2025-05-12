@@ -104,7 +104,7 @@ import { TextGeometry } from 'three/addons/geometries/TextGeometry.js';
 			container = document.getElementById('brain-container');
 
 			camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 1, 5000 );
-			camera.position.set( 0.0, 300, -250 ); // x, y, z
+			camera.position.set(0.0, 300, -500);
 			camera.lookAt( 0, 0, 0 );
 
 			scene = new THREE.Scene();

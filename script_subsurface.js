@@ -17,6 +17,9 @@ import { TextGeometry } from 'three/addons/geometries/TextGeometry.js';
 		let lowerBound;
 		let upperBound;
 		let textMesh;
+		let renderingEnabled = true;
+		let animationFrameId = null;
+
 	
 
 		const canvas = document.getElementById('canvas');
@@ -65,18 +68,35 @@ import { TextGeometry } from 'three/addons/geometries/TextGeometry.js';
 
 		
 		
+	window.addEventListener('DOMContentLoaded', () => {
 		init();
-
-		fontLoader.load('https://threejs.org/examples/fonts/droid/droid_sans_regular.typeface.json', function ( font ) {
-			
-		updateText( " ", font);
-	});
-
+		onWindowResize();
+	
+		fontLoader.load('https://threejs.org/examples/fonts/droid/droid_sans_regular.typeface.json', function (font) {
+			updateText(" ", font);
+		});
+	
 		animate();
-
-
-
-		
+	
+		const toggleCheckbox = document.getElementById("toggle-brain-model");
+		if (toggleCheckbox) {
+			toggleCheckbox.addEventListener("change", () => {
+				renderingEnabled = toggleCheckbox.checked;
+				if (renderingEnabled) {
+					if (model) model.visible = true;
+					if (model2) model2.visible = true;
+					renderer.domElement.style.display = "block";
+					animate(); // restart loop
+				} else {
+					cancelAnimationFrame(animationFrameId); // stop loop
+					if (model) model.visible = false;
+					if (model2) model2.visible = false;
+					renderer.domElement.style.display = "none";
+				}
+			});
+		}
+	});
+	
 	
 
 		function init() {
@@ -101,7 +121,12 @@ import { TextGeometry } from 'three/addons/geometries/TextGeometry.js';
 		lightNames.forEach(name => {
 			lights[name] = createLight(name);
 		});
-
+		lightNames.forEach(name => {
+			if (lights[name] && lights[name].children[0]) {
+				lights[name].currentIntensity = lights[name].children[0].intensity;
+				lights[name].targetIntensity = lights[name].children[0].intensity;
+			}
+		});
 		// Fetch the EEG data
 		fetch('eeg_data_10ex.json')
 			.then((response) => response.json())
@@ -283,10 +308,7 @@ import { TextGeometry } from 'three/addons/geometries/TextGeometry.js';
 		
 		
 		
-	lightNames.forEach(name => {
-		lights[name].currentIntensity = lights[name].children[0].intensity; // Store the initial intensity
-		lights[name].targetIntensity = lights[name].children[0].intensity; // Set a target intensity
-	});
+
 	
 	function updateLightIntensities() {
 		if (!globalEEGData || !globalEEGData.length) return;
@@ -318,11 +340,11 @@ import { TextGeometry } from 'three/addons/geometries/TextGeometry.js';
 		//
 
 		function animate() {
-			setTimeout(() => {
-				requestAnimationFrame(animate);
-				render();
-			}, 1000 / 20); // 24 FPS
+			if (!renderingEnabled) return;
+			animationFrameId = requestAnimationFrame(animate);
+			render();
 		}
+		
 
 		function render() {
 

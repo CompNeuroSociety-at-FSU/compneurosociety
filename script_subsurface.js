@@ -1,7 +1,5 @@
 import * as THREE from 'three';
 
-import Stats from 'three/addons/libs/stats.module.js';
-
 import { GUI } from 'three/addons/libs/lil-gui.module.min.js';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { SubsurfaceScatteringShader } from 'three/addons/shaders/SubsurfaceScatteringShader.js';
@@ -181,8 +179,9 @@ import { TextGeometry } from 'three/addons/geometries/TextGeometry.js';
 			renderer.setSize(600, 600); // Match your CSS size
 			renderer.setClearColor(0x000000, 0); // Transparent clear color (alpha = 0)
 
-			//
-
+			camera.aspect = 1; // Keep aspect ratio square for 600x600
+			camera.updateProjectionMatrix();
+			renderer.setSize(600, 600);
 
             // Helpers
         const axesHelper = new THREE.AxesHelper( 1000);
@@ -282,30 +281,7 @@ import { TextGeometry } from 'three/addons/geometries/TextGeometry.js';
 			return  (10 - (-10)) * ((value - lowerBound)/(upperBound - lowerBound)) - 10;
 		}
 		
-		function createProgressBar() {
-			const progressBarMaterial = new THREE.MeshBasicMaterial({ color: 0xc1c100 });
-			const progressBarBackgroundMaterial = new THREE.MeshBasicMaterial({ color: 0x333333 });
 		
-			const progressBarGeometry = new THREE.PlaneGeometry(1, 20);
-			progressBar = new THREE.Mesh(progressBarGeometry, progressBarMaterial);
-			progressBar.position.set(-500, -250, 0); // Set initial position to start of background
-			progressBar.scale.x = 0.001; // Start with an almost zero scale
-		
-		
-			const progressBarBackgroundGeometry = new THREE.PlaneGeometry(1020, 30);
-			progressBarBackground = new THREE.Mesh(progressBarBackgroundGeometry, progressBarBackgroundMaterial);
-			progressBarBackground.position.set(0, -250, -1); // Just behind the progress bar
-		
-			scene.add(progressBarBackground);
-			scene.add(progressBar);
-		}
-		
-		function updateProgressBar() {
-			const progress = currentDataPoint / maxDataPoints;
-			const progressBarWidth = 1000; // Width of the background bar
-			progressBar.scale.x = Math.max(progress * progressBarWidth, 0.001); // Scale based on progress, minimum 0.001
-			progressBar.position.x = -500 + progressBar.scale.x / 2; // Adjust position to align left
-		}
 		
 	lightNames.forEach(name => {
 		lights[name].currentIntensity = lights[name].children[0].intensity; // Store the initial intensity
@@ -332,67 +308,6 @@ import { TextGeometry } from 'three/addons/geometries/TextGeometry.js';
 			currentDataPoint++;
 		}
 	}
-		function initGUI( uniforms ) {
-
-			const gui = new GUI( { title: 'Thickness Control' } );
-
-			// const gui2 = new GUI({ title: 'Light Controls' });
-
-			// // Iterate over each light to create a folder and add controls
-			// Object.keys(lights).forEach(lightName => {
-			// 	const lightFolder = gui.addFolder(lightName);
-			// 	const pointLight = lights[lightName].children[0];
-		
-			// 	// Add controls for intensity and distance
-			// 	lightFolder.add(pointLight, 'intensity', 0, 10).name('Intensity');
-			// 	lightFolder.add(pointLight, 'distance', 0, 1000).name('Distance');
-			// 			});
-        
-
-
-			const ThicknessControls = function () {
-
-				this.distortion = uniforms[ 'thicknessDistortion' ].value;
-				this.ambient = uniforms[ 'thicknessAmbient' ].value;
-				this.attenuation = uniforms[ 'thicknessAttenuation' ].value;
-				this.power = uniforms[ 'thicknessPower' ].value;
-				this.scale = uniforms[ 'thicknessScale' ].value;
-
-			};
-
-			// const thicknessControls = new ThicknessControls();
-
-			// gui.add( thicknessControls, 'distortion' ).min( 0.01 ).max( 1 ).step( 0.01 ).onChange( function () {
-
-			// 	uniforms[ 'thicknessDistortion' ].value = thicknessControls.distortion;
-
-			// } );
-
-			// gui.add( thicknessControls, 'ambient' ).min( 0.01 ).max( 5.0 ).step( 0.05 ).onChange( function () {
-
-			// 	uniforms[ 'thicknessAmbient' ].value = thicknessControls.ambient;
-
-			// } );
-
-			// gui.add( thicknessControls, 'attenuation' ).min( 0.01 ).max( 5.0 ).step( 0.05 ).onChange( function () {
-
-			// 	uniforms[ 'thicknessAttenuation' ].value = thicknessControls.attenuation;
-
-			// } );
-
-			// gui.add( thicknessControls, 'power' ).min( 0.01 ).max( 16.0 ).step( 0.1 ).onChange( function () {
-
-			// 	uniforms[ 'thicknessPower' ].value = thicknessControls.power;
-
-			// } );
-
-			// gui.add( thicknessControls, 'scale' ).min( 0.01 ).max( 50.0 ).step( 0.1 ).onChange( function () {
-
-			// 	uniforms[ 'thicknessScale' ].value = thicknessControls.scale;
-
-			// } );
-
-		}
 
 		function onWindowResize() {
 			camera.aspect = 1; // Keep aspect ratio square for 600x600

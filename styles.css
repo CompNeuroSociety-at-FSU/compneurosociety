@@ -275,28 +275,26 @@ h2 {
     width: 50%;
 }
 #brain-container {
-    margin: 40px auto 0 auto; /* Top margin, auto left/right centers it */
+    margin: 20px auto 0 auto; 
     padding: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 600px;
-    height: 600px;
-    position: relative;
+    width: 100%;
+    max-width: 600px;
+    aspect-ratio: 1 / 1;
     background: transparent !important;
     overflow: visible;
     z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
 canvas {
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 1 / 1;
     display: block;
-    position: relative;
-    margin: 0 auto; /* Center canvas horizontally */
-    height: 600px !important;
-    width: 600px !important;
     background: transparent !important;
     z-index: 2;
-    top: 0; /* Remove or set to 0 for vertical alignment */
 }
 
 footer {
@@ -873,7 +871,6 @@ input:checked + .slider:before {
     transform: translateX(26px);
 }
   
-=======
 .markdown-container {
     display: flex;
     justify-content: center;

@@ -748,11 +748,15 @@ footer {
         line-height: 1;
     }
 }
+.sponsor-text {
+    font-size: clamp(5px, 2.8vw, 20px);
+}
 #email {
     text-decoration: none;
+    white-space: nowrap;
+}
+#email h1 {
     color: #6db9c9;
-    overflow-wrap: break-word;
-    white-space: normal;
 }
 .special-link {
     color: #f6b6c7; /* Bright orange color */

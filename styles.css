@@ -497,7 +497,6 @@ footer {
     box-shadow: 0 2px 8px rgba(79, 140, 255, 0.08);
 }
 
-  
 
 .announcement-text {
     flex: 1; /* Allows the text area to take up available space */
@@ -550,7 +549,7 @@ footer {
     margin-top: 25px;
     padding-left: 10px;
 }
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     .page-container {
         flex-direction: column-reverse;
         align-items: center;
@@ -625,7 +624,8 @@ footer {
     transform: rotate(-45deg) translateY(100%);
 }
 #event-image {
-    margin-right: 100px;
+    margin-left: auto;
+    margin-right: auto;
     margin-bottom: 100px;
     margin-top: 100px;
     width: 510px;

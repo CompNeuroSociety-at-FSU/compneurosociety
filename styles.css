@@ -8,10 +8,42 @@
     --accent-hover: #ff7e6b;
     --table-header: #2d323c;
     --table-row-alt: #262b34;
+    --nav: #ffffff;
     --white: #ffffff;
     --grey: #bbb;
 
 }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg-main: #121212;          
+    --text-main: #eeeeee;        
+    --text-light: #b3d9ff;        
+    --bg-card: #1e1e1e;           
+    --accent-primary: #4f8cff;    
+    --accent-secondary: #f6b6c7;  
+    --accent-hover: #ff7e6b;      
+    --table-header: #2a2a2a;      
+    --table-row-alt: #1b1b1b;     
+    --nav: linear-gradient(90deg, #283437 20%, #181a24 100%);;
+    --white: #ffffff;             
+    --grey: #999999;  
+  }
+}  
+[data-theme="dark"] {
+  --bg-main: #121212;          
+  --text-main: #eeeeee;        
+  --text-light: #b3d9ff;        
+  --bg-card: #1e1e1e;           
+  --accent-primary: #4f8cff;    
+  --accent-secondary: #f6b6c7;  
+  --accent-hover: #ff7e6b;      
+  --table-header: #2a2a2a;      
+  --table-row-alt: #1b1b1b;     
+  --nav: linear-gradient(90deg, #283437 20%, #181a24 100%);
+  --white: #ffffff;             
+  --grey: #999999;              
+}
+
 /* Body background color */
 html, body {
     font-family: 'Montserrat';
@@ -33,7 +65,7 @@ body::-webkit-scrollbar {
 /* Add a background color to the top navigation */
 .topnav {
     overflow-y: visible;
-    background-color: var(--white); /* White nav background */
+    background: var(--nav); /* White nav background */
     width: 100%;
     display: flex;
     justify-content: space-between; /* Space between logo and navbar */

@@ -13,6 +13,20 @@
     --grey: #bbb;
 
 }
+[data-theme="dark"] {
+  --bg-main: #121212;          
+  --text-main: #eeeeee;        
+  --text-light: #b3d9ff;        
+  --bg-card: #1e1e1e;           
+  --accent-primary: #4f8cff;    
+  --accent-secondary: #f6b6c7;  
+  --accent-hover: #ff7e6b;      
+  --table-header: #2a2a2a;      
+  --table-row-alt: #1b1b1b;     
+  --nav: linear-gradient(90deg, #283437 20%, #181a24 100%);
+  --white: #ffffff;             
+  --grey: #999999;              
+}
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     --bg-main: #121212;          
@@ -29,20 +43,7 @@
     --grey: #999999;  
   }
 }  
-[data-theme="dark"] {
-  --bg-main: #121212;          
-  --text-main: #eeeeee;        
-  --text-light: #b3d9ff;        
-  --bg-card: #1e1e1e;           
-  --accent-primary: #4f8cff;    
-  --accent-secondary: #f6b6c7;  
-  --accent-hover: #ff7e6b;      
-  --table-header: #2a2a2a;      
-  --table-row-alt: #1b1b1b;     
-  --nav: linear-gradient(90deg, #283437 20%, #181a24 100%);
-  --white: #ffffff;             
-  --grey: #999999;              
-}
+
 
 /* Body background color */
 html, body {
@@ -142,7 +143,7 @@ body::-webkit-scrollbar {
 
 .dropdown li a {
     text-decoration: none;
-    color: var(--text-main);
+    color: #23272f;
     padding: 10px 15px;
     display: list-item;
     position: relative;

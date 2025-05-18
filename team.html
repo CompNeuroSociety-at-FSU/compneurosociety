@@ -29,98 +29,100 @@
         <title>Leadership</title>
     </head>
     <body>
-        <!-- Google Tag Manager (noscript) -->
-        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KGLRCKXQ"
-        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-        <!-- End Google Tag Manager (noscript) -->
-        <div class="topnav">
-            <div id="CompNeuroSociety-logo">                
-                <a href="index.html"><img src="images/logo.jpeg" width="80" height="80" /></a>
+        <div class="wrapper">
+            <!-- Google Tag Manager (noscript) -->
+            <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KGLRCKXQ"
+            height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+            <!-- End Google Tag Manager (noscript) -->
+            <div class="topnav">
+                <div id="CompNeuroSociety-logo">                
+                    <a href="index.html"><img src="images/logo.jpeg" width="80" height="80" /></a>
+                </div>
+                <div class="hamburger-menu">
+                    <div class="bar1"></div>
+                    <div class="bar2"></div>
+                    <div class="bar3"></div>
+                </div>
+                <ul class="nav">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a>
+                        <li><a href="leadership.html">People</a>
+                            <ul class="dropdown">
+                                <li><a href="leadership.html">Leadership</a></li>
+                                <li><a href="mentors.html">Mentors</a></li>
+                                <li><a href="team.html" class="active" >The Team</a></li>
+                                <li><a href="join.html">Join Us!</a></li>
+                            </ul></li>
+                        <li><a href="events.html">Events</a>
+                            <ul class="dropdown">
+                                <li><a href="leadevent.html">Lead an Event!</a></li>
+                                <li><a href="events.html">Upcoming Events!</a></li>
+                            </ul></li></li>
+                    <li><a href="sponsors.html"> Sponsors</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <div id="fsu-logo">
+                    <a href="https://www.fsu.edu/" target="_blank"><img src="images/fsu.png" width="80" height="50" /></a> 
+                </div>
             </div>
-            <div class="hamburger-menu">
-                <div class="bar1"></div>
-                <div class="bar2"></div>
-                <div class="bar3"></div>
-            </div>
-            <ul class="nav">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a>
-                    <li><a href="leadership.html">People</a>
-                        <ul class="dropdown">
-                            <li><a href="leadership.html">Leadership</a></li>
-                            <li><a href="mentors.html">Mentors</a></li>
-                            <li><a href="team.html" class="active" >The Team</a></li>
-                            <li><a href="join.html">Join Us!</a></li>
-                        </ul></li>
-                    <li><a href="events.html">Events</a>
-                        <ul class="dropdown">
-                            <li><a href="leadevent.html">Lead an Event!</a></li>
-                            <li><a href="events.html">Upcoming Events!</a></li>
-                        </ul></li></li>
-                <li><a href="sponsors.html"> Sponsors</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-            <div id="fsu-logo">
-                <a href="https://www.fsu.edu/" target="_blank"><img src="images/fsu.png" width="80" height="50" /></a> 
-            </div>
-        </div>
-        <script>
-            document.addEventListener("DOMContentLoaded", () => {
-                const flipCardFronts = document.querySelectorAll(".flip-card-front img");
-        
-                flipCardFronts.forEach((img) => {
-                    if (img.src.includes("images/1f9e0.png") || img.src.includes("images/1f9e0.png")) {
-                        const randomHue = Math.floor(Math.random() * 360); // Generate a random hue value
-                        img.style.filter = `hue-rotate(${randomHue}deg)`; // Apply hue rotation
-                    }
+            <script>
+                document.addEventListener("DOMContentLoaded", () => {
+                    const flipCardFronts = document.querySelectorAll(".flip-card-front img");
+            
+                    flipCardFronts.forEach((img) => {
+                        if (img.src.includes("images/1f9e0.png") || img.src.includes("images/1f9e0.png")) {
+                            const randomHue = Math.floor(Math.random() * 360); // Generate a random hue value
+                            img.style.filter = `hue-rotate(${randomHue}deg)`; // Apply hue rotation
+                        }
+                    });
                 });
-            });
-        </script>
-        <div class="header">
-            <h1>Meet Our Team Members!</h1>
-            <h2>We are a group of passionate students interested in the field of computational neuroscience.</h2>
-        <div class="flip-card-container">
-            <div class="flip-card">
-                <div class="flip-card-inner">
-                    <div class="flip-card-front">
-                        <img src="images/1f9e0.png" alt="Brain Icon" width="80" height="80">
+            </script>
+            <div class="header">
+                <h1>Meet Our Team Members!</h1>
+                <h2>We are a group of passionate students interested in the field of computational neuroscience.</h2>
+            <div class="flip-card-container">
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="images/1f9e0.png" alt="Brain Icon" width="80" height="80">
+                        </div>
+                        <div class="flip-card-back">
+                            <h1>John Doe</h1>
+                            <p>Role: Team Member</p>
+                            <p>Interests: Neuroscience, AI, and Data Science</p>
+                            <p>Fun Fact: Loves hiking and photography!</p>
+                        </div>
                     </div>
-                    <div class="flip-card-back">
-                        <h1>John Doe</h1>
-                        <p>Role: Team Member</p>
-                        <p>Interests: Neuroscience, AI, and Data Science</p>
-                        <p>Fun Fact: Loves hiking and photography!</p>
+                </div>
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="images/1f9e0.png" alt="Brain Icon" width="80" height="80">
+                        </div>
+                        <div class="flip-card-back">
+                            <h1>Jane Smith</h1>
+                            <p>Role: Team Member</p>
+                            <p>Interests: Computational Biology and Machine Learning</p>
+                            <p>Fun Fact: Enjoys painting and playing the piano!</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="images/1f9e0.png" alt="Brain Icon" width="80" height="80">
+                        </div>
+                        <div class="flip-card-back">
+                            <h1>Alex Johnson</h1>
+                            <p>Role: Team Member</p>
+                            <p>Interests: Brain-Computer Interfaces and Robotics</p>
+                            <p>Fun Fact: Avid gamer and chess enthusiast!</p>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="flip-card">
-                <div class="flip-card-inner">
-                    <div class="flip-card-front">
-                        <img src="images/1f9e0.png" alt="Brain Icon" width="80" height="80">
-                    </div>
-                    <div class="flip-card-back">
-                        <h1>Jane Smith</h1>
-                        <p>Role: Team Member</p>
-                        <p>Interests: Computational Biology and Machine Learning</p>
-                        <p>Fun Fact: Enjoys painting and playing the piano!</p>
-                    </div>
-                </div>
-            </div>
-            <div class="flip-card">
-                <div class="flip-card-inner">
-                    <div class="flip-card-front">
-                        <img src="images/1f9e0.png" alt="Brain Icon" width="80" height="80">
-                    </div>
-                    <div class="flip-card-back">
-                        <h1>Alex Johnson</h1>
-                        <p>Role: Team Member</p>
-                        <p>Interests: Brain-Computer Interfaces and Robotics</p>
-                        <p>Fun Fact: Avid gamer and chess enthusiast!</p>
-                    </div>
-                </div>
-            </div>
+            <script src="navbar.js"></script>
         </div>
-        <script src="navbar.js"></script>
         <footer>
             <img id="club-logo" src="images/logo.jpeg"></img>
             <div id="icons">

@@ -340,7 +340,7 @@ import { TextGeometry } from 'three/addons/geometries/TextGeometry.js';
 		//
 
 		let lastFrameTime = 0;
-		const targetFPS = 22; // Target frames per second
+		const targetFPS = 19; // Target frames per second
 		const frameDuration = 1000 / targetFPS;
 
 		function animate(now) {

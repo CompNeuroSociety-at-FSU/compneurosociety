@@ -848,7 +848,13 @@ table tr:nth-child(even) td {
     border-radius: 50%;
     transition: 0.4s;
 }
-  
+.dark-mode:before {
+    content: "☀️";
+    font-size: 18px;
+}
+input:checked + .dark-mode:before {
+    content: "🌑";
+}
 input:checked + .slider {
     background-color: var(--accent-primary);
 }

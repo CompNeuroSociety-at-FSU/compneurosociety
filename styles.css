@@ -154,7 +154,7 @@ body::-webkit-scrollbar {
 }
 
 .dropdown li a:hover, .dropdown a.active {
-    background-color: var(--accent-secondary);
+    background-color: var(--accent-primary);
     color: var(--white);
 }
 

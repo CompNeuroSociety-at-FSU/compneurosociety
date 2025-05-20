@@ -1,3 +1,50 @@
+:root {
+    --bg-main: #f0f1f7;
+    --text-main: #23272f;
+    --text-light: azure;
+    --bg-card: #eaf1fb;
+    --accent-primary: #6db9c9;
+    --accent-secondary: #D5718C;
+    --accent-hover: #ff7e6b;
+    --table-header: #2d323c;
+    --table-row-alt: #262b34;
+    --nav: #ffffff;
+    --white: #ffffff;
+    --grey: #bbb;
+
+}
+[data-theme="dark"] {
+  --bg-main: #171a1f;          
+  --text-main: #eeeeee;        
+  --text-light: #b3d9ff;        
+  --bg-card: #1e1e1e;           
+  --accent-primary: #4f8cff;    
+  --accent-secondary: #f6b6c7;  
+  --accent-hover: #ff7e6b;      
+  --table-header: #2a2a2a;      
+  --table-row-alt: #1b1b1b;     
+  --nav: linear-gradient(90deg, #283437 20%, #181a24 100%);
+  --white: #ffffff;             
+  --grey: #999999;              
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg-main: #171a1f;          
+    --text-main: #eeeeee;        
+    --text-light: #b3d9ff;        
+    --bg-card: #1e1e1e;           
+    --accent-primary: #4f8cff;    
+    --accent-secondary: #f6b6c7;  
+    --accent-hover: #ff7e6b;      
+    --table-header: #2a2a2a;      
+    --table-row-alt: #1b1b1b;     
+    --nav: linear-gradient(90deg, #283437 20%, #181a24 100%);;
+    --white: #ffffff;             
+    --grey: #999999;  
+  }
+}  
+
+
 /* Body background color */
 html, body {
     font-family: 'Montserrat';
@@ -8,10 +55,9 @@ html, body {
     flex-direction: column;
     scrollbar-width: none;
     -ms-overflow-style: none;
-    color: #23272f; /* Modern dark text */
-    background-color: #f0f1f7; /* Modern light background */
+    color: var(--text-main); /* Modern dark text */
+    background-color: var(--bg-main); /* Modern light background */
     overflow-x: hidden;
-
 }
 body::-webkit-scrollbar { 
     width: 0;
@@ -25,7 +71,7 @@ body::-webkit-scrollbar {
 /* Add a background color to the top navigation */
 .topnav {
     overflow-y: visible;
-    background-color: #ffffff; /* White nav background */
+    background: var(--nav); /* White nav background */
     width: 100%;
     display: flex;
     justify-content: space-between; /* Space between logo and navbar */
@@ -61,7 +107,7 @@ body::-webkit-scrollbar {
 
 .nav > li > a {
     text-decoration: none;
-    color: #23272f; /* Modern dark text */
+    color: var(--text-main); /* Modern dark text */
     padding: 10px 15px;
     display: inline-block;
     transition: color 0.3s, background 0.3s;
@@ -70,8 +116,8 @@ body::-webkit-scrollbar {
 }
 
 .nav > li > a:hover, .nav > li > a.active {
-    background: #eaf1fb;
-    color: #6db9c9;
+    background: var(--bg-card);
+    color: var(--accent-primary);
 }
 
 /* Style for the dropdown menu */
@@ -81,14 +127,14 @@ body::-webkit-scrollbar {
     margin: 0;
     position: absolute;
     left: 0;
-    background-color: #ffffff; /* Background color for dropdown */
+    background-color: var(--bg-main); /* Background color for dropdown */
     display: none; /* Initially hidden */
     box-shadow: 0 4px 16px rgba(79, 140, 255, 0.10);
     z-index: 0;
     border-radius: 12px;
 }
 .dropdown a.active {
-    color: #6db9c9;
+    color: var(--accent-primary);
 }
 .dropdown li {
     margin: 0;
@@ -97,7 +143,7 @@ body::-webkit-scrollbar {
 
 .dropdown li a {
     text-decoration: none;
-    color: #23272f;
+    color: var(--text-main);
     padding: 10px 15px;
     display: list-item;
     position: relative;
@@ -108,8 +154,8 @@ body::-webkit-scrollbar {
 }
 
 .dropdown li a:hover, .dropdown a.active {
-    background-color: #D5718C;
-    color: #fff;
+    background-color: var(--accent-primary);
+    color: var(--white);
 }
 
 /* Show the dropdown menu on hover */
@@ -123,8 +169,8 @@ body::-webkit-scrollbar {
     transition: transform 0.3s ease;
     width: 10px;
     height: 10px;
-    border-right: 2px solid #F2F2F2;
-    border-bottom: 2px solid #F2F2F2;
+    border-right: 2px solid var(--grey);
+    border-bottom: 2px solid var(--grey);
     transform: rotate(45deg);
     position: relative;
     top: -2px;
@@ -138,7 +184,7 @@ body::-webkit-scrollbar {
 
 /* Styling for navbar links */
 .topnav a {
-    color: #23272f;
+    color: var(--text-main);
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
@@ -151,8 +197,8 @@ body::-webkit-scrollbar {
 /* Hover effect for links */
 @media (hover: hover) and (pointer: fine) {
     .topnav a:hover {
-      background-color: #eaf1fb;
-      color: #D5718C;
+      background-color: var(--bg-card);
+      color: var(--accent-secondary);
       border-radius: 8px;
     }
 }
@@ -160,7 +206,7 @@ body::-webkit-scrollbar {
 
 /* Active link styling */
 .topnav a.active {
-    color: #ffffff;
+    color: var(--white);
 }
 
 /* FSU logo positioning */
@@ -176,20 +222,20 @@ h1 {
     text-align: center;
     margin-top: 20px;
     font-weight: bolder;
-    color: #23272f;
+    color: var(--text-main);
 }
     
 h2 {
     text-align: center;
     font-weight: 20px;
-    color: #6db9c9;
+    color: var(--accent-primary);
     
 }
 /* Custom large oval button */
 /* Custom large oval button */
 .btn-oval {
-    background-color: #D5718C; /* Button color */
-    color: #fff; /* Text color */
+    background-color: var(--accent-secondary); /* Button color */
+    color: var(--white); /* Text color */
     padding: 20px 40px; /* Large padding for a larger button */
     font-size: 18px; /* Larger text */
     border: none; /* Remove default border */
@@ -226,9 +272,9 @@ h2 {
 }
 
 .btn-oval:hover {
-    background-color: #ff7e6b; /* Darker shade on hover */
+    background-color: var(--accent-hover); /* Darker shade on hover */
     /* Add a slight shadow on hover */
-    color: #fff;
+    color: var(--white);
     box-shadow: 0 4px 16px rgba(255, 126, 107, 0.15);
 }
 .btn-oval .ripple {
@@ -254,17 +300,17 @@ h2 {
 .info-box {
     text-align: left;
     margin:10px auto;
-    background-color: #eaf1fb;
+    background-color: var(--bg-card);
     overflow: hidden;
     width: 85%;
     align-items: center;
     padding: 24px 28px;
     border-radius: 18px;
     box-shadow: 0 2px 12px rgba(79, 140, 255, 0.08);
-    border-left: 6px solid #6dd6c9;
+    border-left: 6px solid var(--accent-primary);
 }
 .info-box p {
-    color: #23272f;
+    color: var(--text-main);
     font-size: 20px;
     font-weight: 600;
 }
@@ -313,7 +359,7 @@ footer {
     width: 100%;
     box-sizing: border-box;
     margin-top: auto;
-    color: #fff;
+    color: var(--white);
 }
 #club-logo {
     width: 0px;
@@ -331,18 +377,16 @@ footer {
 #icons svg {
     cursor: pointer;
     transition: transform 0.2s, fill 0.2s, stroke 0.2s;
-    fill: #4f8cff;
-    stroke: #4f8cff; /* Add this line for stroke-based SVGs */
 }
 #icons svg * {
-    fill: #6db9c9 !important;
-    stroke: #6db9c9 !important;
-    background: #23272f;
+    fill: var(--accent-primary) !important;
+    stroke: var(--accent-primary) !important;
+    background: var(--text-main);
 }
 #icons svg:hover {
     transform: scale(1.2);
-    fill: #ff7e6b;
-    stroke: #ff7e6b; /* Add this line for stroke-based SVGs */
+    fill: var(--accent-hover);
+    stroke: var(--accent-hover); /* Add this line for stroke-based SVGs */
     animation: iconPulse 0.4s;
 }
 @keyframes iconPulse {
@@ -351,8 +395,8 @@ footer {
     100% { transform: scale(1); }
 }
 #icons svg:hover * {
-    fill: #ff7e6b !important;
-    stroke: #ff7e6b !important;
+    fill: var(--accent-hover) !important;
+    stroke: var(--accent-hover) !important;
 }
 #icons svg *,
 #icons svg {
@@ -365,7 +409,7 @@ footer {
 }
 #countdown {
     margin-bottom: -10px;
-    color: #1d2430;
+    color: var(--text-main);
     font-size: 20px;
     font-weight: bold;
 }
@@ -453,7 +497,7 @@ footer {
   
   /* Style the front side (fallback if image is missing) */
   .flip-card-front {
-    background-color: #bbb;
+    background-color: var(--grey);
     color: black;
   }
   .flip-card-front img {
@@ -464,8 +508,7 @@ footer {
 }
   /* Style the back side */
   .flip-card-back {
-    background-color: #283437;
-    color: white;
+    background-color: var(--text-main);
     transform: rotateY(180deg);
     overflow: auto;
     
@@ -473,72 +516,25 @@ footer {
 .flip-card-back h1 {
     font-size: 1.5rem;
     margin-top: 10px;
-    color:azure;
+    color:var(--text-light);
 }
 .flip-card-back p {
     font-size:  medium;
     line-height: 1;
-    color: #f6b6c7; /* Replace with your desired text color */
+    color: var(--accent-secondary); /* Replace with your desired text color */
     padding: 0; /* Add padding for better spacing */
 }
 .flip-card-back a {
-    color: #efd4db;
+    color: var(--text-light);
     font-size: medium; /* Replace with your desired link color */
     text-decoration: underline; /* Optional: Adds underline to links */
     transition: color 0.3s ease; /* Smooth transition for hover effect */
 }
 
 .flip-card-back a:hover {
-    color: #BBBBBB; /* Replace with your desired hover color */
-}
-.announcement {
-    display: flex;
-    align-items: flex-start;
-    gap: 20px;
-    margin: 20px 0;
-    padding: 15px;
-    background-color: #eaf1fb;
-    border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(79, 140, 255, 0.08);
+    color: var(--grey) /* Replace with your desired hover color */
 }
 
-
-.announcement-text {
-    flex: 1; /* Allows the text area to take up available space */
-}
-
-.announcement-title {
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin: 0 0 10px;
-    color: #4f8cff;
-    text-align: left;
-}
-
-.announcement-body {
-    font-size: 1rem;
-    line-height: 1.5;
-    color: #555;
-}
-
-.announcement-image img {
-    max-width: 300px;
-    width: 100%; /* Ensures the image scales properly */
-    height: auto;
-    border-radius: 10px;
-}
-
-@media (max-width: 768px) {
-    .announcement {
-        flex-direction: column; /* Stack content vertically on smaller screens */
-        align-items: center;
-        text-align: center;
-    }
-
-    .announcement-image {
-        margin-top: 15px;
-    }
-}
 .page-container {
     display: flex;
     justify-content: space-between;
@@ -594,17 +590,16 @@ footer {
     left: 165px;
     top: 0;
     width: 4px;
-    background-color: #BBBBBB;
+    background-color: var(--grey);
     z-index: 0;
 }
 .event {
     position: relative;
     width: 310px;
     height: 200px;
-    border-color: #6dd6c9;
-    background-color: #eaf1fb;
+    background-color: var(--bg-card);
     margin-bottom: 50px;
-    color: #23272f;
+    color: var(--text-main);
     padding: 10px 10px;
     z-index: 1;
     transition: all 0.5s ease;
@@ -651,7 +646,7 @@ footer {
   .bar1, .bar2, .bar3 {
     width: 100%;
     height: 3px;
-    background-color: #363434;
+    background-color: var(--text-main);
     transition: 0.4s;
   }
   
@@ -681,7 +676,7 @@ footer {
       right: -100%;
       width: 70%;
       height: 100vh;
-      background-color: #ffffff;
+      background-color: var(--bg-main);
       flex-direction: column;
       justify-content: flex-start;
       padding-top: 80px;
@@ -701,7 +696,7 @@ footer {
       display:block;
       /* Ensures the links block out links behind it */
       z-index: 0;
-      background-color: #ffffff;
+      background-color: var(--bg-main);
       
     }
     
@@ -761,19 +756,9 @@ footer {
     white-space: nowrap;
 }
 #email h1 {
-    color: #6db9c9;
-}
-.special-link {
-    color: #f6b6c7; /* Bright orange color */
-    font-weight: bold; /* Make the text bold */
-    text-decoration: underline; /* Add an underline */
-    transition: color 0.3s ease;
-    line-height: 1.2; /* Smooth transition for hover effect */
+    color: var(--accent-primary);
 }
 
-.special-link:hover {
-    color: #4f8cff; /* Darker red color on hover */
-}
 .lead-description{
     text-align: center;
 }
@@ -798,8 +783,8 @@ footer {
   100% { transform: scale(1); }
 }
 table {
-  background-color: #23272f; /* Modern dark gray */
-  color: #fff; /* White text */
+  background-color: var(--text-main); /* Modern dark gray */
+  color: var(--white); /* White text */
   border-radius: 10px;
   overflow: hidden;
   width: 100%;
@@ -807,17 +792,17 @@ table {
   border-spacing: 0;
 }
 table th, table td {
-  color: #fff;
-  background-color: #23272f;
+  color: var(--white);
+  background-color: var(--text-main);
   padding: 10px 16px;
   border: none;
 }
 table th {
   font-weight: bold;
-  background-color: #2d323c; /* Slightly lighter gray for header */
+  background-color: var(--table-header); /* Slightly lighter gray for header */
 }
 table tr:nth-child(even) td {
-  background-color: #262b34; /* Alternate row color for readability */
+  background-color: var(--table-row-alt); /* Alternate row color for readability */
 }
 
 #toggle-container {
@@ -843,7 +828,7 @@ table tr:nth-child(even) td {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #ccc;
+    background-color: var(--grey);
     transition: 0.4s;
     border-radius: 34px;
 }
@@ -859,17 +844,23 @@ table tr:nth-child(even) td {
     width: 26px;
     left: 4px;
     bottom: 4px;
-    background-color: white;
+    background-color: var(--white);
     border-radius: 50%;
     transition: 0.4s;
 }
-  
+.dark-mode:before {
+    content: "☀️";
+    font-size: 18px;
+}
+input:checked + .dark-mode:before {
+    content: "🌑";
+}
 input:checked + .slider {
-    background-color: #6db9c9;
+    background-color: var(--accent-primary);
 }
   
 input:focus + .slider {
-    box-shadow: 0 0 1px #6db9c9;
+    box-shadow: 0 0 1px var(--accent-primary);
 }
   
 input:checked + .slider:before {

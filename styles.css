@@ -14,7 +14,7 @@
 
 }
 [data-theme="dark"] {
-  --bg-main: #121212;          
+  --bg-main: #171a1f;          
   --text-main: #eeeeee;        
   --text-light: #b3d9ff;        
   --bg-card: #1e1e1e;           
@@ -29,7 +29,7 @@
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --bg-main: #121212;          
+    --bg-main: #171a1f;          
     --text-main: #eeeeee;        
     --text-light: #b3d9ff;        
     --bg-card: #1e1e1e;           

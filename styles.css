@@ -508,7 +508,7 @@ footer {
 }
   /* Style the back side */
   .flip-card-back {
-    background-color: var(--text-main);
+    background-color: var(--bg-card);
     transform: rotateY(180deg);
     overflow: auto;
     

@@ -573,9 +573,8 @@ footer {
         margin-right: 25px;
     }
     #event-image {
-       width: 75%;
-       height: auto;
-       margin-left: 100px;
+       width: 90% !important;
+       height: auto !important;
     }
     .flip-card-back {
         font-size: smaller;

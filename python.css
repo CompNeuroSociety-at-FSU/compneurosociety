@@ -1,0 +1,38 @@
+body {
+    background-image: url('images/python-background.png')
+}
+.headers {
+    text-align: center;
+    color: white;
+    text-shadow: 0 0 10px #00b7ff;
+    font-size: 3em;
+}
+#sub {
+    font-size: 2em;
+}
+#info {
+    font-size: 1.5em
+}
+.parts {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 3em;
+}
+.parts div {
+    height: 600px;
+    width: 400px;
+    box-shadow: 0 0 10px #00b7ff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: transform .2s;
+}
+.parts div:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+.parts h1 {
+    color: white;
+    font-size: 4.5em;
+}

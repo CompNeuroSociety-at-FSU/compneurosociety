@@ -651,6 +651,8 @@ footer {
     opacity: 0;
     animation: eventPopIn 0.7s ease forwards;
     cursor: pointer;
+    overflow-y: scroll;
+    scrollbar-width: none;
 }
 .event h3, .event p {
     text-align: left;
@@ -921,3 +923,4 @@ input:checked + .slider:before {
     margin: 0 auto;
     padding: 45px;
 }
+

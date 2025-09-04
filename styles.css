@@ -535,6 +535,50 @@ footer {
     color: var(--grey) /* Replace with your desired hover color */
 }
 
+/* Calendar Section Styling */
+.calendar-section {
+    margin: 40px auto;
+    padding: 0 20px;
+    text-align: center;
+    max-width: 1400px;
+    width: 95%;
+}
+
+.calendar-container {
+    background-color: var(--bg-main);
+    border-radius: 18px;
+    padding: 20px;
+    box-shadow: 0 2px 12px rgba(79, 140, 255, 0.08);
+    margin: 20px auto;
+    overflow: hidden;
+    width: 100%;
+}
+
+.calendar-container iframe {
+    width: 1200px;
+    height: 500px;
+    border: none;
+    border-radius: 12px;
+}
+
+/* Responsive adjustments for calendar */
+@media (max-width: 768px) {
+    .calendar-container {
+        padding: 15px;
+        margin: 15px 10px;
+    }
+    
+    .calendar-container iframe {
+        height: 500px;
+    }
+}
+
+@media (max-width: 480px) {
+    .calendar-container iframe {
+        height: 400px;
+    }
+}
+
 .page-container {
     display: flex;
     justify-content: space-between;

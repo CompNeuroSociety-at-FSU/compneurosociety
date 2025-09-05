@@ -120,6 +120,11 @@ body::-webkit-scrollbar {
     color: var(--accent-primary);
 }
 
+/* Make "Join Us!" text half the size */
+.nav > li > a[href="join.html"] {
+    font-size: 0.5em; /* Half the current size */
+}
+
 /* Style for the dropdown menu */
 .dropdown {
     list-style-type:none;
@@ -234,13 +239,13 @@ h2 {
 /* Custom large oval button */
 .btn-oval {
     background-color: var(--accent-secondary); /* Button color */
-    color: var(--light); /* Text color */
+    color: var(--white); /* Text color */
     padding: 0; /* Remove padding - link will handle it */
     font-size: clamp(100px, 100vw, 100px); /* Larger responsive font size */
     font-weight: bold; /* Make text bold */
     border: none; /* Remove default border */
     border-radius: 100px; /* Oval shape */
-    text-align: middle;
+    text-align: center; /* Center text properly */
     display: block; /* Changed to block for centering */
     width: fit-content; /* Adjust width to content */
     max-width: 95%; /* Allow more width for larger text */
@@ -292,29 +297,31 @@ h2 {
     justify-content: center; /* Center horizontally */
     width: 100%;
     height: 100%;
-    padding: 25px 50px; /* Increased padding for larger text */
+    padding: 20px 30px; /* Restore padding for proper button spacing */
+    margin: 0; /* Ensure no margin offset */
     font-size: inherit; /* Inherit font size from parent */
     font-weight: inherit; /* Inherit font weight from parent */
-    line-height: 1.3; /* Better line height for readability */
+    line-height: 1.2; /* Restore line height for better text appearance */
     text-align: center; /* Center text */
     border-radius: inherit; /* Inherit border radius */
     transition: inherit; /* Inherit transitions */
     white-space: nowrap; /* Prevent text wrapping initially */
     overflow: visible; /* Allow text to be visible */
+    box-sizing: border-box; /* Ensure proper box model */
 }
 
 /* Adjust text size based on content length */
 .btn-oval a[href*="forms.office.com"] {
     font-size: clamp(20px, 4vw, 26px); /* 4/6ths the text size for URLs */
     font-weight: bold; /* Bold text */
-    padding: 20px 35px; /* Adequate padding for URLs */
+    padding: 15px 25px; /* Smaller padding for URL links */
     white-space: normal; /* Allow wrapping for long URLs if needed */
 }
 
 .btn-oval a:not([href*="forms.office.com"]) {
     font-size: clamp(20px, 4vw, 26px); /* 4/6ths the text size for short text */
     font-weight: bold; /* Bold text */
-    padding: 25px 50px; /* Generous padding for short text */
+    padding: 20px 30px; /* Standard padding for short text */
 }
 
 .btn-oval a:hover {
@@ -342,20 +349,20 @@ h2 {
     }
     
     .btn-oval a {
-        padding: 18px 30px; /* Adequate padding on mobile */
+        padding: 15px 20px; /* Appropriate padding for mobile */
         word-break: break-word; /* Better word breaking */
     }
     
     .btn-oval a[href*="forms.office.com"] {
         font-size: clamp(18px, 4vw, 24px); /* Larger size for long URLs on mobile */
         font-weight: bold;
-        padding: 15px 25px;
+        padding: 12px 18px; /* Smaller padding for URLs on mobile */
     }
     
     .btn-oval a:not([href*="forms.office.com"]) {
         font-size: clamp(22px, 5vw, 28px); /* Larger size for short text on mobile */
         font-weight: bold;
-        padding: 18px 30px;
+        padding: 15px 20px; /* Standard padding for mobile */
     }
 }
 
@@ -367,19 +374,19 @@ h2 {
     }
     
     .btn-oval a {
-        padding: 15px 25px; /* Adequate padding on very small screens */
+        padding: 12px 15px; /* Appropriate padding for very small screens */
     }
     
     .btn-oval a[href*="forms.office.com"] {
         font-size: clamp(16px, 3.5vw, 20px); /* Larger size for long URLs on tiny screens */
         font-weight: bold;
-        padding: 12px 20px;
+        padding: 10px 12px; /* Smaller padding for URLs on tiny screens */
     }
     
     .btn-oval a:not([href*="forms.office.com"]) {
         font-size: clamp(20px, 4.5vw, 24px); /* Larger size for short text on tiny screens */
         font-weight: bold;
-        padding: 15px 25px;
+        padding: 12px 15px; /* Standard padding for tiny screens */
     }
 }
 

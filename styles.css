@@ -68,6 +68,21 @@ body::-webkit-scrollbar {
     display: flex;
     flex-direction: column;
 }
+
+/* Main content container for consistent max-width and margins */
+main, .main-content {
+    max-width: 1600px; /* Maximum width for ultra-wide screens */
+    margin: 0 auto; /* Centers content */
+    width: 100%;
+    padding: 0 20px; /* Side margins for all screen sizes */
+}
+
+@media (min-width: 1920px) {
+    main, .main-content {
+        padding: 0 60px; /* Larger side margins on very wide screens */
+    }
+}
+
 /* Add a background color to the top navigation */
 .topnav {
     overflow-y: visible;
@@ -226,15 +241,22 @@ body::-webkit-scrollbar {
 h1 {
     text-align: center;
     margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
     font-weight: bolder;
     color: var(--text-main);
+    max-width: 1400px; /* Prevents headings from stretching too wide */
+    padding: 0 20px; /* Side padding for readability */
 }
     
 h2 {
     text-align: center;
+    margin-left: auto;
+    margin-right: auto;
     font-weight: 20px;
     color: var(--accent-primary);
-    
+    max-width: 1200px; /* Prevents subheadings from stretching too wide */
+    padding: 0 20px; /* Side padding for readability */
 }
 /* Custom large oval button */
 .btn-oval {
@@ -339,6 +361,30 @@ h2 {
     z-index: 2;
 }
 
+/* Closed/Disabled button styling */
+.btn-oval-closed {
+    font-size: 16px !important; /* Override large font size */
+    max-width: 400px !important; /* Limit width on desktop */
+    min-width: 280px !important; /* Reasonable minimum */
+    min-height: auto !important; /* Let content determine height */
+    padding: 16px 24px !important; /* Compact padding */
+    display: inline-block !important; /* Keep centered but not full width */
+    margin: 20px auto !important;
+    pointer-events: none; /* Disable clicking */
+    opacity: 0.6; /* Dimmed appearance */
+    cursor: default; /* Normal cursor */
+}
+
+.btn-oval-closed span {
+    font-size: 16px;
+    line-height: 1.4;
+}
+
+.btn-oval-closed div {
+    font-size: 13px;
+    margin-top: 4px;
+}
+
 /* Responsive styling for btn-oval on smaller screens */
 @media (max-width: 768px) {
     .btn-oval {
@@ -407,6 +453,7 @@ h2 {
     background-color: var(--bg-card);
     overflow: hidden;
     width: 85%;
+    max-width: 1200px; /* Prevents stretching on ultra-wide screens */
     align-items: center;
     padding: 24px 28px;
     border-radius: 18px;
@@ -914,6 +961,9 @@ footer {
 
 .lead-description{
     text-align: center;
+    max-width: 1400px; /* Prevents content from stretching too wide */
+    margin: 0 auto; /* Centers the container */
+    padding: 0 20px; /* Adds side padding on all screens */
 }
 .lead-description ul {
     display: inline-block;

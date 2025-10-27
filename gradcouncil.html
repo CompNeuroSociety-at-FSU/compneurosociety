@@ -69,83 +69,156 @@
             </div>
         </div>
         <h1>Graduate Student Advisory Council</h1>
-        <h2>Bridging the gap between graduate expertise and undergraduate learning</h2>
+        <h2>Join us in shaping the future of our society!</h2>
         
         <div class="lead-description">
+            <h1 style="text-align: center; margin-top: 40px;">Meet Our Council Members</h1>
+
+            <script>
+                document.addEventListener("DOMContentLoaded", () => {
+                    const flipCardFronts = document.querySelectorAll(".flip-card-front img");
+            
+                    flipCardFronts.forEach((img) => {
+                        if (img.src.includes("images/1f9e0.png") || img.src.includes("images/1f9e0.png")) {
+                            const randomHue = Math.floor(Math.random() * 360); // Generate a random hue value
+                            img.style.filter = `hue-rotate(${randomHue}deg)`; // Apply hue rotation
+                        }
+                    });
+                });
+            </script>
+
+            <div class="flip-card-container">
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="images/jaketear.jpg" alt="Brain Icon" width="80" height="80">
+                        </div>
+                        <div class="flip-card-back">
+                            <h1>Jake Tear</h1>
+                            <p>Neuroscience PhD Student in the Riddle Lab</p>
+                            <p>Research: Jake is interested in improving the utility of EEG measures for precision psychiatry.</p>
+                            <p>Fun Fact: Jake enjoys surfing and was on the UCSB surf team prior to joining FSU!</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="images/1f9e0.png" alt="Brain Icon" width="80" height="80">
+                        </div>
+                        <div class="flip-card-back">
+                            <h1>Yicheng Zheng</h1>
+                            <p>Neuroscience PhD Student in the Wilber Lab</p>
+                            <p>Research: [Research interests and focus]</p>
+                            <p>Fun Fact: Yicheng's dog has it's own instagram page!</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="images/1f9e0.png" alt="Brain Icon" width="80" height="80">
+                        </div>
+                        <div class="flip-card-back">
+                            <h1>Greg Owanga</h1>
+                            <p>Biomathematics PhD Student in the lab of Dr. Richard Bertram</p>
+                            <p>Research: [Research interests and focus]</p>
+                            <p>Fun Fact: [Fun fact about member]</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div class="info-box">
-                <h3 style="color: var(--accent-primary); margin-top: 0;">🎓 Our Mission</h3>
+                <h3 style="color: var(--accent-primary); margin-top: 0;">CompNeuroSociety Overview</h3>
                 <p style="font-weight: normal; font-size: 16px;">
-                    The Graduate Student Advisory Council serves as a vital resource for CompNeuroSociety, 
-                    connecting graduate students with undergraduate members to foster mentorship, collaboration, 
-                    and knowledge sharing across the computational neuroscience community at FSU.
+                    CompNeuroSociety aims to foster interest and collaboration in computational neuroscience at Florida 
+                    State University. Led primarily by undergraduate students, the society organizes workshops, journal 
+                    clubs, guest speaker events, and collaborative projects to build skills and explore careers in this 
+                    interdisciplinary field.
                 </p>
             </div>
 
             <div class="info-box">
-                <h3 style="color: var(--accent-primary); margin-top: 0;">🤝 What We Do</h3>
+                <h3 style="color: var(--accent-primary); margin-top: 0;">Purpose of the Graduate Student Advisory Council</h3>
+                <p style="font-weight: normal; font-size: 16px;">
+                    The Graduate Student Advisory Council provides guidance, mentorship, and oversight to ensure sustainable 
+                    growth and meaningful programming. Council members will:
+                </p>
                 <ul style="font-weight: normal; font-size: 16px;">
-                    <li><strong>Mentorship:</strong> Provide guidance to undergraduate students interested in computational neuroscience research and graduate school</li>
-                    <li><strong>Technical Support:</strong> Offer expertise in programming, modeling, data analysis, and computational methods</li>
-                    <li><strong>Career Guidance:</strong> Share insights about graduate school applications, research opportunities, and career paths</li>
-                    <li><strong>Project Advising:</strong> Support collaborative projects with domain-specific knowledge and research experience</li>
-                    <li><strong>Workshop Leadership:</strong> Lead technical workshops and tutorials in your area of expertise</li>
-                    <li><strong>Research Connections:</strong> Help connect students with research opportunities in labs across campus</li>
+                    <li><strong>Provide guidance and mentorship:</strong> Offer continuity, technical expertise, and career 
+                    insights while allowing undergraduates to lead initiatives</li>
+                    <li><strong>Influence programming:</strong> Suggest workshop topics, recommend speakers, help design 
+                    learning experiences, and advise on collaborative projects</li>
+                    <li><strong>Interface with faculty and administration:</strong> Facilitate connections to research labs, 
+                    identify funding opportunities, and represent the society in broader academic discussions</li>
                 </ul>
             </div>
 
             <div class="info-box">
-                <h3 style="color: var(--accent-primary); margin-top: 0;">📚 Areas of Expertise</h3>
+                <h3 style="color: var(--accent-primary); margin-top: 0;">Core Responsibilities</h3>
                 <p style="font-weight: normal; font-size: 16px;">
-                    We welcome graduate student mentors from diverse backgrounds and fields, including:
+                    Council members commit to <strong>approximately 2–4 hours per month</strong>, with responsibilities 
+                    structured modularly so members can choose how to contribute:
                 </p>
-                <ul style="font-weight: normal; font-size: 16px; columns: 2; -webkit-columns: 2; -moz-columns: 2;">
-                    <li>Computer Science</li>
-                    <li>Engineering</li>
-                    <li>Neuroscience</li>
-                    <li>Mathematics</li>
-                    <li>Computational Science</li>
-                    <li>Statistics</li>
-                    <li>Physics</li>
-                    <li>Biomedical Sciences</li>
-                    <li>Psychology</li>
-                    <li>Data Science</li>
+                <ul style="font-weight: normal; font-size: 16px;">
+                    <li><strong>Workshops:</strong> Design or co-lead skill-building sessions on computational methods, 
+                    programming, or data analysis</li>
+                    <li><strong>Journal Clubs:</strong> Suggest papers, facilitate discussions, or provide context on 
+                    current research trends</li>
+                    <li><strong>Collaborative Projects:</strong> Mentor teams, offer technical guidance, or connect students 
+                    to relevant datasets and tools</li>
+                    <li><strong>Guest Speakers:</strong> Recommend contacts, help coordinate events, or introduce speakers</li>
+                    <li><strong>Mentorship Hours:</strong> Hold periodic office hours or respond to questions via Slack</li>
+                    <li><strong>Strategic Input:</strong> Participate in planning meetings (e.g., monthly or as needed) to 
+                    discuss long-term goals and assess programming effectiveness</li>
                 </ul>
+            </div>
+
+            <div class="info-box">
+                <h3 style="color: var(--accent-primary); margin-top: 0;">Time Commitment & Expectations</h3>
+                <ul style="font-weight: normal; font-size: 16px;">
+                    <li><strong>Flexibility:</strong> Choose which activities align with your schedule and expertise</li>
+                    <li><strong>Minimal Burden:</strong> Designed to complement, not compete with, your research and teaching</li>
+                    <li><strong>Supportive Role:</strong> You provide advice and resources; undergraduates handle logistics 
+                    and execution</li>
+                </ul>
+            </div>
+
+            <div class="info-box">
+                <h3 style="color: var(--accent-primary); margin-top: 0;">Practical Implementation Steps</h3>
+                <ol style="font-weight: normal; font-size: 16px; text-align: left; max-width: 800px; margin: 0 auto;">
+                    <li><strong>Slack Channel:</strong> Create a dedicated channel (e.g., #grad-advisory-council) for ongoing 
+                    communication</li>
+                    <li><strong>Kickoff Meeting:</strong> Hold an initial Zoom meeting to introduce council members, clarify 
+                    roles, and outline the semester's priorities</li>
+                    <li><strong>Constitution Amendment:</strong> Add a brief section to the society's constitution outlining 
+                    the council's purpose and composition</li>
+                    <li><strong>Website & Visibility:</strong> Feature council members on the website with photos and brief 
+                    bios to encourage engagement</li>
+                </ol>
             </div>
 
             <div class="info-box" style="background-color: var(--accent-secondary); border-left-color: var(--accent-primary);">
-                <h3 style="color: var(--white); margin-top: 0;">✨ Benefits of Joining</h3>
-                <ul style="font-weight: normal; font-size: 16px; color: var(--white);">
-                    <li>Develop leadership and mentoring skills</li>
-                    <li>Expand your professional network within FSU and the broader neuroscience community</li>
-                    <li>Gain teaching and communication experience</li>
-                    <li>Contribute to building the next generation of computational neuroscientists</li>
-                    <li>Collaborate with motivated undergraduate students on interesting projects</li>
-                    <li>Enhance your CV with mentorship and outreach activities</li>
-                    <li>Stay connected with the undergraduate community and cutting-edge topics</li>
-                </ul>
-            </div>
-
-            <div class="info-box">
-                <h3 style="color: var(--accent-primary); margin-top: 0;">⏰ Time Commitment</h3>
-                <p style="font-weight: normal; font-size: 16px;">
-                    We understand that graduate students have demanding schedules. Our council is designed to be flexible:
+                <h3 style="color: var(--white); margin-top: 0;">Opportunities for Service</h3>
+                <p style="font-weight: normal; font-size: 16px; color: var(--white);">
+                    By joining the Graduate Student Advisory Council, you'll:
                 </p>
-                <ul style="font-weight: normal; font-size: 16px;">
-                    <li>Participate as much or as little as your schedule allows</li>
-                    <li>Choose specific areas where you'd like to contribute (mentorship, workshops, project advising, etc.)</li>
-                    <li>Most activities require just 2 hours per month</li>
-                    <li>Remote participation options available for many activities</li>
+                <ul style="font-weight: normal; font-size: 16px; color: var(--white);">
+                    <li>Help shape the next generation of computational neuroscientists at FSU</li>
+                    <li>Build leadership and mentoring experience valuable for academic and industry careers</li>
+                    <li>Network with faculty, peers, and external speakers in the field</li>
+                    <li>Contribute to a vibrant, collaborative community without overwhelming your schedule</li>
                 </ul>
             </div>
 
-            <h3 style="text-align: center; margin-top: 40px;">Ready to become a mentor?</h3>
+            <h3 style="text-align: center; margin-top: 40px;">Interested in Joining?</h3>
             <p style="text-align: center; font-size: 18px;">
-                Join our Graduate Student Advisory Council and help shape the future of computational neuroscience at FSU!<br>
-                Fill out the form below to express your interest. (will open in new tab)
+                Fill out the form below to apply to the Graduate Student Advisory Council!
             </p>
             <div class="btn-oval">
                 <a href="https://forms.office.com/r/nhPdxuABtC" 
-                   target="_blank">Join the Grad Council</a>
+                   target="_blank">Apply to Graduate Advisory Council</a>
             </div>
             <p style="text-align: center; font-size: 14px; color: var(--grey); margin-top: 20px;">
                 Questions? Contact us at <a href="contact.html">our contact page</a> or reach out to any of our current leadership team members.

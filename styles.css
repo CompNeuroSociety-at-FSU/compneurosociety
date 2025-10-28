@@ -661,26 +661,30 @@ footer {
   .flip-card-back {
     background-color: var(--bg-card);
     transform: rotateY(180deg);
-    overflow: auto;
+    overflow: visible;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 15px;
+    padding: 25px 15px; /* Increased top/bottom padding */
     box-sizing: border-box;
 }
 .flip-card-back h1 {
     font-size: clamp(1.2rem, 4vw, 2rem);
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin: 8px 0; /* Add top margin to prevent cutoff */
     color: var(--text-main);
+    width: 100%;
+    text-align: center;
+    line-height: 1.2; /* Ensure proper line height */
 }
 .flip-card-back p {
     font-size: clamp(0.75rem, 2.5vw, 1.1rem);
     line-height: 1.3;
     color: var(--text-main); /* Use main text color for readability */
-    padding: 5px 0;
-    margin: 5px 0;
+    padding: 0;
+    margin: 4px 0;
+    width: 100%;
+    text-align: center;
 }
 .flip-card-back a {
     color: var(--accent-primary);
@@ -691,6 +695,52 @@ footer {
 
 .flip-card-back a:hover {
     color: var(--accent-hover) /* Replace with your desired hover color */
+}
+
+/* Larger flip cards for leadership page - 25% bigger and square */
+.leadership-cards .flip-card {
+    height: 0;
+    padding-bottom: 100%; /* Square aspect ratio (1:1) */
+    min-width: 250px; /* 25% bigger than default 200px */
+}
+
+.leadership-cards .flip-card-back {
+    padding: 24.3px 20px; /* Reduced from 27px by 10% (27 - 2.7 = 24.3) */
+    overflow-y: auto; /* Allow scrolling if content is still too long */
+    justify-content: flex-start; /* Align to top instead of center */
+}
+
+.leadership-cards .flip-card-back h1 {
+    margin: 8.1px 0; /* Reduced from 9px by 10% (9 - 0.9 = 8.1) */
+    line-height: 1.3; /* Better line height for wrapping names */
+}
+
+.leadership-cards {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Adjust grid for larger cards */
+}
+
+@media (max-width: 768px) {
+    .leadership-cards .flip-card {
+        min-width: 225px; /* 25% bigger than default on tablets */
+    }
+    
+    .leadership-cards {
+        grid-template-columns: repeat(auto-fit, minmax(225px, 1fr));
+    }
+}
+
+@media (max-width: 480px) {
+    .leadership-cards .flip-card {
+        min-width: 200px; /* Maintain reasonable size on mobile */
+    }
+    
+    .leadership-cards {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+    
+    .leadership-cards .flip-card-back {
+        padding: 20.25px 15px; /* Reduced from 22.5px by 10% (22.5 - 2.25 = 20.25) */
+    }
 }
 
 /* Calendar Section Styling */

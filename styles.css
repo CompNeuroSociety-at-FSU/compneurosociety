@@ -1004,6 +1004,22 @@ footer {
     .special-link {
         line-height: 1;
     }
+    
+    /* Increase flip card text size on mobile to reduce whitespace */
+    .flip-card-back h1 {
+        font-size: clamp(1.4rem, 5vw, 2.2rem); /* Larger on mobile */
+        margin: 10px 0;
+    }
+    
+    .flip-card-back p {
+        font-size: clamp(0.9rem, 3.5vw, 1.3rem); /* Larger on mobile */
+        line-height: 1.4;
+        margin: 6px 0;
+    }
+    
+    .flip-card-back a {
+        font-size: clamp(0.9rem, 3.5vw, 1.3rem); /* Larger on mobile */
+    }
 }
 .sponsor-text {
     font-size: clamp(5px, 2.8vw, 20px);

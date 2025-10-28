@@ -743,6 +743,52 @@ footer {
     }
 }
 
+/* Larger flip cards for gradcouncil page - 25% bigger and square */
+.gradcouncil-cards .flip-card {
+    height: 0;
+    padding-bottom: 100%; /* Square aspect ratio (1:1) */
+    min-width: 250px; /* 25% bigger than default 200px */
+}
+
+.gradcouncil-cards .flip-card-back {
+    padding: 24.3px 20px; /* Same as leadership cards */
+    overflow-y: auto; /* Allow scrolling if content is still too long */
+    justify-content: flex-start; /* Align to top instead of center */
+}
+
+.gradcouncil-cards .flip-card-back h1 {
+    margin: 8.1px 0; /* Same as leadership cards */
+    line-height: 1.3; /* Better line height for wrapping names */
+}
+
+.gradcouncil-cards {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Adjust grid for larger cards */
+}
+
+@media (max-width: 768px) {
+    .gradcouncil-cards .flip-card {
+        min-width: 225px; /* 25% bigger than default on tablets */
+    }
+    
+    .gradcouncil-cards {
+        grid-template-columns: repeat(auto-fit, minmax(225px, 1fr));
+    }
+}
+
+@media (max-width: 480px) {
+    .gradcouncil-cards .flip-card {
+        min-width: 200px; /* Maintain reasonable size on mobile */
+    }
+    
+    .gradcouncil-cards {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+    
+    .gradcouncil-cards .flip-card-back {
+        padding: 20.25px 15px; /* Same as leadership cards */
+    }
+}
+
 /* Calendar Section Styling */
 .calendar-section {
     margin: 40px auto;

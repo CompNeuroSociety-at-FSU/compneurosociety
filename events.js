@@ -1,102 +1,82 @@
-
-function adjustTimelineHeight() {
+document.addEventListener('DOMContentLoaded', () => {
+  const imagesPath = 'images/';
   const container = document.querySelector('.events-container');
-  const timeline = document.querySelector('.timeline-line');
-  
-  timeline.style.height = container.scrollHeight-50 + 'px';
-}
+  const events = Array.from(document.querySelectorAll('.event'));
+  const eventImage = document.getElementById('event-image');
+  const countdownEl = document.getElementById('countdown');
 
-// Run on page load
-window.addEventListener('load', adjustTimelineHeight);
-
-// Also run if window is resized
-window.addEventListener('resize', adjustTimelineHeight);
-
-
-function setupEventListeners() {
-  // Get all event divs
-  const events = document.querySelectorAll('.event');
-  
-  // Add click event listener to each event
-  events.forEach((event, index) => {
-      event.addEventListener('click', function() {
-          // This function will run when an event is clicked
-          handleEventClick(this, index);
-      });
-      
-      // Add a cursor pointer to indicate clickability
-      event.style.cursor = 'pointer';
-  });
-}
-
-var images = "images/"
-function handleEventClick(eventElement, index) {
-  console.log(`Event ${index + 1} clicked:`, eventElement.querySelector('h3').textContent);
-  document.getElementById("event-image").src= images + eventElement.getAttribute("data-image")
-}
-
-const events = document.querySelectorAll('.event');
-let now = new Date();
-let dates = {"now": now};
-for (let i = 0; i < events.length; i++)
-{
-  dates[events[i].id] = new Date(events[i].getAttribute("data-date"))
-}
-dates = Object.fromEntries(
-  Object.entries(dates).sort((a, b) => a[1] - b[1])
-);
-let next = ""
-const container = document.querySelector('.events-container');
-container.style.scrollBehavior = 'smooth';
-for(const [key, value] of Object.entries(dates))
-{
-  if(value > now)
-  {
-    next = document.getElementById(key);
-    document.getElementById("event-image").src = images + next.getAttribute("data-image");
-    break;
+  function adjustTimelineHeight() {
+    const timeline = document.querySelector('.timeline-line');
+    if (!container || !timeline) return;
+    timeline.style.height = Math.max(0, container.scrollHeight - 50) + 'px';
   }
-}
-const containerRect = container.getBoundingClientRect();
-const nextRect = next.getBoundingClientRect();
-const offset = nextRect.top - containerRect.top - 25;
 
-// Smooth scroll to the element within the container
-container.scrollBy({
-  top: offset,
-  behavior: 'smooth'
-});
-// Run when page loads
-window.addEventListener('load', function() {
+  window.addEventListener('resize', adjustTimelineHeight);
   adjustTimelineHeight();
-  setupEventListeners();
-});
 
-// Set the date we're counting down to
-var countDownDate = new Date(next.getAttribute("data-date")).getTime();
-
-// Update the count down every 1 second
-var x = setInterval(function() {
-
-  // Get today's date and time
-  var now = new Date().getTime();
-
-  // Find the distance between now and the count down date
-  var distance = countDownDate - now;
-
-  // Time calculations for days, hours, minutes and seconds
-  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-  // Display the result in the element with id="demo"
-  document.getElementById("countdown").innerHTML = days + "d " + hours + "h "
-  + minutes + "m " + seconds + "s ";
-
-  // If the count down is finished, write some text
-  if (distance < 0) {
-    clearInterval(x);
-    document.getElementById("countdown").innerHTML = "EXPIRED";
+  function setupEventListeners() {
+    events.forEach((ev, idx) => {
+      ev.style.cursor = 'pointer';
+      ev.addEventListener('click', () => {
+        const imgName = ev.dataset.image || 'placeholder.png';
+        console.log(`Event ${idx + 1} clicked:`, ev.querySelector('h3')?.textContent);
+        eventImage.src = imagesPath + imgName;
+      });
+    });
   }
-}, 1000);
+
+  setupEventListeners();
+
+  // Find next event (first event with date > now). If none, pick most recent past or first event.
+  const now = new Date();
+  const eventsWithDates = events
+      .map(ev => ({ el: ev, date: new Date(ev.dataset.date) }))
+      .filter(x => !isNaN(x.date)); // drop invalid dates
+
+  eventsWithDates.sort((a, b) => a.date - b.date);
+
+  let nextObj = eventsWithDates.find(x => x.date > now);
+  if (!nextObj) {
+    // no future events: fall back to most recent past event, or the first event
+    nextObj = eventsWithDates.length ? eventsWithDates[eventsWithDates.length - 1] : (events[0] ? { el: events[0], date: null } : null);
+  }
+
+  if (nextObj && nextObj.el) {
+    const imgName = nextObj.el.dataset.image || 'placeholder.png';
+    eventImage.src = imagesPath + imgName;
+
+    // smooth scroll to the chosen event inside the container (guarded)
+    try {
+      container.style.scrollBehavior = 'smooth';
+      const containerRect = container.getBoundingClientRect();
+      const nextRect = nextObj.el.getBoundingClientRect();
+      const offset = nextRect.top - containerRect.top - 25;
+      container.scrollBy({ top: offset, behavior: 'smooth' });
+    } catch (err) {
+      console.warn('Could not scroll to next event:', err);
+    }
+
+    // Start a countdown only if we have a valid future date
+    if (nextObj.date && nextObj.date > now && countdownEl) {
+      let countDownDate = nextObj.date.getTime();
+      const x = setInterval(() => {
+        const nowMs = new Date().getTime();
+        const distance = countDownDate - nowMs;
+        if (distance <= 0) {
+          clearInterval(x);
+          countdownEl.textContent = 'EXPIRED';
+          return;
+        }
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        countdownEl.textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+      }, 1000);
+    }
+  } else {
+    // No events at all: set a sensible default
+    if (eventImage) eventImage.src = imagesPath + 'placeholder.png';
+    if (countdownEl) countdownEl.textContent = 'No upcoming events';
+  }
+});

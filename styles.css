@@ -754,6 +754,7 @@ footer {
     padding: 24.3px 20px; /* Same as leadership cards */
     overflow-y: auto; /* Allow scrolling if content is still too long */
     justify-content: flex-start; /* Align to top instead of center */
+    overflow-x: hidden;
 }
 
 .gradcouncil-cards .flip-card-back h1 {
@@ -763,6 +764,7 @@ footer {
 
 .gradcouncil-cards {
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Adjust grid for larger cards */
+    margin-bottom: 50px;
 }
 
 @media (max-width: 768px) {
@@ -1274,3 +1276,10 @@ input:checked + .slider:before {
     }
 }
 
+#brain-to-text, #retina-model {
+    margin-bottom: 40px;
+}
+
+.grad-box {
+    margin-bottom: 20px;
+}

@@ -449,13 +449,13 @@ h2 {
 }
 .info-box {
     text-align: left;
-    margin:10px auto;
+    margin: 10px auto;
     background-color: var(--bg-card);
-    overflow: hidden;
+    overflow: auto;
     width: 85%;
     max-width: 1200px; /* Prevents stretching on ultra-wide screens */
     align-items: center;
-    padding: 24px 28px;
+    padding: 20px 28px;
     border-radius: 18px;
     box-shadow: 0 2px 12px rgba(79, 140, 255, 0.08);
     border-left: 6px solid var(--accent-primary);
@@ -820,14 +820,42 @@ footer {
 }
 
 /* Responsive adjustments for calendar */
-@media (max-width: 768px) {
+@media (max-width: 450px) {
     .calendar-container {
-        padding: 15px;
-        margin: 15px 10px;
+        padding: 0px 0px 0px 0px;
+        margin: 0px 0px 0px 0px;
+        align-content: left left;
     }
     
     .calendar-container iframe {
         height: 500px;
+    }
+}
+
+@media (max-width: 420px) {
+    .info-box {
+        height: 100%;
+        width: 87%;
+        margin-bottom: 10px;
+        margin-left: 2px;
+        margin-right: 2px;
+        padding-right: 1px;
+        text-align: left;
+        text-wrap: break-all;;
+    }
+    .info-box p {
+        height: 100%;
+        width: 87%;
+        text-align: left;
+        text-wrap: break-all;
+        margin-right: 2px;
+    }
+    .info-box ul li {
+        padding-right: 2px;
+    }
+    .info-box p a {
+        word-break: break-all;
+        text-overflow: break-word;
     }
 }
 
@@ -839,7 +867,7 @@ footer {
 
 .page-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: normal;
 }
 .events-container {
     position: relative;

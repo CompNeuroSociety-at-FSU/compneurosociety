@@ -240,13 +240,14 @@ main, .main-content {
 }
 h1 {
     text-align: center;
-    margin-top: 20px;
+    margin-top: 50px;
     margin-left: auto;
     margin-right: auto;
     font-weight: bolder;
     color: var(--text-main);
     max-width: 1400px; /* Prevents headings from stretching too wide */
-    padding: 0 20px; /* Side padding for readability */
+    max-height: 100px;
+    padding: 0px 0px; /* Side padding for readability */
 }
     
 h2 {
@@ -499,6 +500,7 @@ canvas {
     z-index: 2;
 }
 
+
 footer {
     /* Modern left-to-right gradient */
     background: linear-gradient(-90deg, #283437 20%, #181a24 100%);
@@ -580,44 +582,25 @@ footer {
 /* Container for all flip cards */
 .flip-card-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px; /* Space between rows */
-    width: 100vw; /* Adjust width as needed */
-    padding: 0px;
-    justify-items: center;
-    max-width: 1500px;
-    margin-top: 20px;
-    margin-bottom: 10px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-
-.mentor-flip-card-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 24px; /* Adjust gap as needed */
-    padding: 0px;
-    margin: 0 auto; /* Center the container */
-    margin-top: 20px;
-}
-.mentor-flip-card-container .mentor-card {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px; /* Space between rows */
     width: 100%;
-    max-width: 400px; /* Optional: control card width */
-    margin: 0;
-    height: 400px;
-    aspect-ratio: 1 / 1;
-    padding-bottom: 0;
+    padding: 20px 0;
+    justify-items: center;
+    max-width: 1200px; /* Allow cards to spread out */
+    margin: 20px auto;
+    isolation: isolate;
+    position: relative;
 }
-/* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
+
+/* The flip card container */
 .flip-card {
     background-color: transparent;
     width: 100%;
-    height: 0;
-    padding-bottom: 100%;
+    aspect-ratio: 1 / 1;
     position: relative;
     perspective: 1000px;
-    z-index: 5;
+    isolation: isolate;
   }
   
   /* This container is needed to position the front and back side */
@@ -647,21 +630,22 @@ footer {
   }
   
   /* Style the front side (fallback if image is missing) */
-  .flip-card-front {
+    .flip-card-front {
     background-color: var(--grey);
     color: black;
   }
-  .flip-card-front img {
+
+.flip-card-front img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     overflow-block: hidden;
 }
   /* Style the back side */
-  .flip-card-back {
+.flip-card-back {
     background-color: var(--bg-card);
     transform: rotateY(180deg);
-    overflow: visible;
+    overflow-y: auto; /* Allow scrolling if content is too long on small cards */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -697,95 +681,45 @@ footer {
     color: var(--accent-hover) /* Replace with your desired hover color */
 }
 
-/* Larger flip cards for leadership page - 25% bigger and square */
-.leadership-cards .flip-card {
-    height: 0;
-    padding-bottom: 100%; /* Square aspect ratio (1:1) */
-    min-width: 250px; /* 25% bigger than default 200px */
-}
+@media (max-width: 480px) {
+    .flip-card-container {
+        grid-template-columns: 1fr; /* Stack cards on very small screens */
+        max-width: 300px; /* Keep cards reasonable size */
+        margin-bottom: 30px;
+    }
 
-.leadership-cards .flip-card-back {
-    padding: 24.3px 20px; /* Reduced from 27px by 10% (27 - 2.7 = 24.3) */
-    overflow-y: auto; /* Allow scrolling if content is still too long */
-    justify-content: flex-start; /* Align to top instead of center */
-}
-
-.leadership-cards .flip-card-back h1 {
-    margin: 8.1px 0; /* Reduced from 9px by 10% (9 - 0.9 = 8.1) */
-    line-height: 1.3; /* Better line height for wrapping names */
-}
-
-.leadership-cards {
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Adjust grid for larger cards */
+    .flip-card {
+        aspect-ratio: 1 / 1;
+        width: 100%;
+        max-width: 280px;
+    }
+     
+    .flip-card-back {
+        padding: 15px;
+    }
+    
+    .info-box {
+        width: 95%;
+        padding: 15px 20px;
+        margin-top: 20px;
+    }
 }
 
 @media (max-width: 768px) {
-    .leadership-cards .flip-card {
-        min-width: 225px; /* 25% bigger than default on tablets */
+    .flip-card-container {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        max-width: 90%;
+        gap: 20px;
     }
-    
-    .leadership-cards {
-        grid-template-columns: repeat(auto-fit, minmax(225px, 1fr));
-    }
-}
 
-@media (max-width: 480px) {
-    .leadership-cards .flip-card {
-        min-width: 200px; /* Maintain reasonable size on mobile */
+    .flip-card {
+        aspect-ratio: 1 / 1;
     }
-    
-    .leadership-cards {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    }
-    
-    .leadership-cards .flip-card-back {
-        padding: 20.25px 15px; /* Reduced from 22.5px by 10% (22.5 - 2.25 = 20.25) */
-    }
-}
 
-/* Larger flip cards for gradcouncil page - 25% bigger and square */
-.gradcouncil-cards .flip-card {
-    height: 0;
-    padding-bottom: 100%; /* Square aspect ratio (1:1) */
-    min-width: 250px; /* 25% bigger than default 200px */
-}
-
-.gradcouncil-cards .flip-card-back {
-    padding: 24.3px 20px; /* Same as leadership cards */
-    overflow-y: auto; /* Allow scrolling if content is still too long */
-    justify-content: flex-start; /* Align to top instead of center */
-}
-
-.gradcouncil-cards .flip-card-back h1 {
-    margin: 8.1px 0; /* Same as leadership cards */
-    line-height: 1.3; /* Better line height for wrapping names */
-}
-
-.gradcouncil-cards {
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Adjust grid for larger cards */
-}
-
-@media (max-width: 768px) {
-    .gradcouncil-cards .flip-card {
-        min-width: 225px; /* 25% bigger than default on tablets */
-    }
-    
-    .gradcouncil-cards {
-        grid-template-columns: repeat(auto-fit, minmax(225px, 1fr));
-    }
-}
-
-@media (max-width: 480px) {
-    .gradcouncil-cards .flip-card {
-        min-width: 200px; /* Maintain reasonable size on mobile */
-    }
-    
-    .gradcouncil-cards {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    }
-    
-    .gradcouncil-cards .flip-card-back {
-        padding: 20.25px 15px; /* Same as leadership cards */
+    .info-box {
+        width: 90%;
+        padding: 18px 24px;
+        margin-top: 20px;
     }
 }
 
@@ -834,21 +768,17 @@ footer {
 
 @media (max-width: 420px) {
     .info-box {
-        height: 100%;
-        width: 87%;
-        margin-bottom: 10px;
-        margin-left: 2px;
-        margin-right: 2px;
-        padding-right: 1px;
+        height: auto;
+        width: 92%;
+        margin-bottom: 20px;
+        padding: 15px;
         text-align: left;
-        text-wrap: break-all;;
     }
     .info-box p {
-        height: 100%;
-        width: 87%;
+        height: auto;
+        width: 100%;
         text-align: left;
-        text-wrap: break-all;
-        margin-right: 2px;
+        margin: 10px 0;
     }
     .info-box ul li {
         padding-right: 2px;
@@ -1074,6 +1004,9 @@ footer {
     .mentor-flip-card-container {
         grid-template-columns: 1fr; /* Stack cards vertically */
         gap: 20px; /* Adjust gap as needed */
+        padding-right: 5px;
+        margin-right: 5px;
+        max-height: 500px
     }
     .special-link {
         line-height: 1;

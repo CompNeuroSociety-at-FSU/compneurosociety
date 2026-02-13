@@ -25,15 +25,15 @@
         j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
         })(window,document,'script','dataLayer','GTM-KGLRCKXQ');</script>
-         <!-- End Google Tag Manager -->
-        <title>CompNeuroSociety at FSU</title>
+        <!-- End Google Tag Manager -->
+        <title>Dr. Carmen Varela Award</title>
     </head>
     <body>
         <!-- Google Tag Manager (noscript) -->
         <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KGLRCKXQ"
         height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <!-- End Google Tag Manager (noscript) -->
-        <div class="topnav" style="margin-bottom:100px;">
+        <div class="topnav">
             <div id="CompNeuroSociety-logo">                
                 <a href="index.html"><img src="images/logo.jpeg" width="80" height="80" /></a>
             </div>
@@ -43,83 +43,45 @@
                 <div class="bar3"></div>
             </div>
             <ul class="nav">
-                    <li><a href="index.html" class="active">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="leadership.html">People</a>
-                        <ul class="dropdown">
-                            <li><a href="leadership.html">Leadership</a></li>
-                            <li><a href="gradcouncil.html">Grad Council</a></li>
-                            <li><a href="mentors.html">Mentors</a></li>
-                            <li><a href="team.html">The Team</a></li>
-                            <li><a href="join.html">Join Us!</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="events.html">Events</a>
-                        <ul class="dropdown">
-                            <li><a href="leadevent.html">Lead an Event!</a></li>
-                            <li><a href="events.html">Upcoming Events!</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="projects.html">Projects</a></li>
-                    <li><a href="varela-award.html">Varela Award</a></li>
-                    <li><a href="sponsors.html">Sponsors</a></li>
-                    <li><a href="contact.html">Contact</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="leadership.html">People</a>
+                    <ul class="dropdown">
+                        <li><a href="leadership.html">Leadership</a></li>
+                        <li><a href="gradcouncil.html">Grad Council</a></li>
+                        <li><a href="mentors.html">Mentors</a></li>
+                        <li><a href="team.html">The Team</a></li>
+                        <li><a href="join.html">Join Us!</a></li>
+                    </ul>
+                </li>
+                <li><a href="events.html">Events</a>
+                    <ul class="dropdown">
+                        <li><a href="leadevent.html">Lead an Event!</a></li>
+                        <li><a href="events.html">Upcoming Events!</a></li>
+                    </ul>
+                </li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="varela-award.html" class="active">Varela Award</a></li>
+                <li><a href="sponsors.html">Sponsors</a></li>
+                <li><a href="contact.html">Contact</a></li>
             </ul>
             <div id="fsu-logo">
-                <a href="https://www.fsu.edu/" target="_blank"><img src="images/fsu.png" width="80" height="50" /></a> 
+                <a href="https://www.fsu.edu" target="_blank"><img src="images/fsu_logo.png" width="90" height="90" /></a> 
             </div>
         </div>
-        <h1>Welcome to CompNeuroSociety at FSU</h1>
-        <h2>Building future leaders in computational neuroscience through community and teaching at Florida State University.</h2>
-        <div class="btn-oval">
-            <a href="join.html">Join Us!</a>
+        <h1>Dr. Carmen Varela Award</h1>
+        <h2>Apply for Conference Registration Support</h2>
+        <div class="lead-description">
+            <p style="text-align: center; font-size: 18px; margin-bottom: 30px;">
+                This form is to apply for the Dr. Carmen Varela Award funded by the Lab of Dr. Carmen Varela which will cover 2-3 undergraduate members of CompNeuroSociety to cover registration fees to present a poster or simply attend the <a href="https://fcneurocog.org/" target="_blank" style="color: var(--link-color);">Florida Consortium on the Neurobiology of Cognition 2026 Conference</a>, taking place at Florida State University May 6th-8th. We will however prioritize applicants who intend to present a poster.
+            </p>
+            <h3>Click the link below to apply!</h3>
+            <div class="btn-oval">
+                <a href="https://forms.office.com/r/UBsEdgJm9J" 
+                   aria-label="Apply for Dr. Carmen Varela Award">Apply Now</a>
+            </div>
         </div>
-        <script type="importmap">
-            {
-                "imports": {
-                    "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
-                    "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
-                }
-            }
-        </script>
-        <div id="brain-container">
-            <canvas id="canvas"></canvas>
-        </div>
-        <div id="toggle-container">
-            <label class="switch">
-              <input type="checkbox" id="toggle-brain-model" checked />
-              <span class="slider round"></span>
-            </label>
-            <label for="toggle-brain-model" style="font-weight: 600;">Enable Brain Model Visualization</label>
-        </div>
-        <script type="module" src="script_subsurface.js"></script>
-        <script>
-        document.querySelectorAll('.btn-oval').forEach(btn => {
-          btn.addEventListener('click', function(e) {
-            // Prevent immediate navigation if inside a link
-            const parentLink = btn.closest('a[href]');
-            if (parentLink) {
-              e.preventDefault();
-            }
-            // Ripple effect
-            const rect = btn.getBoundingClientRect();
-            const ripple = document.createElement('span');
-            ripple.className = 'ripple';
-            const size = Math.max(rect.width, rect.height);
-            ripple.style.width = ripple.style.height = size + 'px';
-            ripple.style.left = (e.clientX - rect.left - size / 2) + 'px';
-            ripple.style.top = (e.clientY - rect.top - size / 2) + 'px';
-            btn.appendChild(ripple);
-            ripple.addEventListener('animationend', () => ripple.remove());
-            // Delay navigation
-            if (parentLink) {
-              setTimeout(() => {
-                window.location.href = parentLink.href;
-              }, 500); // 500ms delay
-            }
-          });
-        });
-        </script>
+        <script src="navbar.js"></script>
         <footer>
             <div>
                 <label class="switch">
@@ -141,7 +103,6 @@
             </div>
             <p id="copyright">&copy; 2025 CompNeuroSociety</p>
         </footer>
-        <script src="navbar.js"></script>
         <script src="darkmode.js"></script>
     </body>
 </html>
